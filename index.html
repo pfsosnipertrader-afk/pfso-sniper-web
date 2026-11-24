@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMC PFSO Sniper Trader Academy | XAUUSD Mechanical System</title>
+  <script src="https://tailwindcss.com"></script>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #080A0F;
+      color: #F3F4F6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-display { font-family: 'Cinzel', serif; }
+    .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+    .gold-text {
+      background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 50%, #B45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border {
+      border-color: rgba(212, 175, 55, 0.35);
+    }
+    .gold-glow {
+      box-shadow: 0 0 35px rgba(212, 175, 55, 0.14);
+    }
+    .card-dark {
+      background: linear-gradient(180deg, #111622 0%, #0C1018 100%);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-amber-500/30 selection:text-amber-200">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#080A0F]/90 border-b border-amber-500/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-700 flex items-center justify-center text-black font-extrabold text-lg shadow-lg shadow-amber-500/20">
+          PF
+        </div>
+        <div>
+          <div class="font-display font-bold text-white tracking-wider text-base sm:text-lg leading-none">PFSO SNIPER</div>
+          <div class="text-[10px] font-mono-code text-amber-400 tracking-widest mt-1">XAUUSD • MECHANICAL ACADEMY</div>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-gray-300">
+        <a href="#filosofi" class="hover:text-amber-400 transition">Filosofi & Psikologi</a>
+        <a href="#sistem" class="hover:text-amber-400 transition">Sistem CTC</a>
+        <a href="#kalkulator" class="hover:text-amber-400 transition">Fibo Roadmap</a>
+        <a href="#glosarium" class="hover:text-amber-400 transition">Glosarium</a>
+        <a href="#katalog" class="hover:text-amber-400 transition text-amber-300 font-semibold">2 Jalur Paket</a>
+        <a href="#faq" class="hover:text-amber-400 transition">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://pfsosnipertrader.com" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-2 rounded-lg border border-amber-500/40 text-amber-300 hover:bg-amber-500/10 text-xs font-semibold transition">
+          Ruang Belajar
+        </a>
+        <a href="#order" class="px-4 py-2.5 rounded-lg bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-black font-bold text-xs sm:text-sm hover:brightness-110 transition shadow-lg shadow-amber-500/20">
+          AMANKAN LISENSI
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden pt-16 pb-24 border-b border-white/5">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.14),transparent_60%)] pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono-code tracking-wider mb-6">
+        <span>●</span> PUSAT EDUKASI TRADER MANDIRI • ANALISA MANUAL SMC CTC
+      </div>
+
+      <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-5">
+        <span class="gold-text">SMC PFSO SNIPER</span><br />
+        <span class="text-white">TRADER ACADEMY</span>
+      </h1>
+
+      <p class="text-lg sm:text-2xl font-semibold text-amber-200/90 italic mb-5">
+        “Satu Peluru, Satu Eksekusi, Disiplin Tanpa Kompromi Emosi”
+      </p>
+
+      <p class="max-w-3xl mx-auto text-gray-400 text-sm sm:text-base leading-relaxed mb-10">
+        Tujuan utama akademi ini adalah mencetak <strong class="text-white">Trader Mandiri</strong> melalui pembelajaran bersama berbasis analisa manual struktur pasar murni (<strong class="text-amber-300">Pullback Candle-to-Candle &amp; Strong FVG</strong>). Ubah kebisingan warna candle menjadi kerangka matematika pasar yang objektif—atau pilih jalur otomatis <strong class="text-white">PFSO Weapon</strong> bagi trader sibuk.
+      </p>
+
+      <!-- HUKUM MUTLAK BANNER -->
+      <div class="max-w-3xl mx-auto mb-10 p-5 sm:p-6 rounded-2xl card-dark border gold-border gold-glow">
+        <div class="text-[11px] font-mono-code uppercase tracking-[0.25em] text-amber-400 mb-2">HUKUM MUTLAK KONSTITUSI SETUP</div>
+        <div class="font-mono-code text-lg sm:text-2xl font-bold text-white tracking-wide">
+          NO IDM = NO SETUP &nbsp;•&nbsp; IDM WAJIB DI-BO (SWEEP / BODY)
+        </div>
+        <p class="text-xs sm:text-sm text-gray-400 mt-2">
+          Seluruh setup Sniper 1 ABC &amp; Sniper 2 ABC hanya sah jika Inducement (IDM) telah diambil untuk mengunci High Valid (HV) &amp; Low Valid (LV).
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#katalog" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-black font-extrabold text-sm tracking-wide hover:brightness-110 transition shadow-xl shadow-amber-500/20">
+          LIHAT 2 JALUR PAKET &amp; ALAT BANTU
+        </a>
+        <a href="#kalkulator" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 border border-white/15 text-white font-semibold text-sm hover:bg-white/10 transition">
+          SIMULASI FIBO ROADMAP M5
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKSI 1: PSIKOLOGI & MEDAN TEMPUR SNIPER -->
+  <section id="filosofi" class="py-20 border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="text-xs font-mono-code text-amber-400 tracking-widest uppercase mb-2">MEDAN TEMPUR PSIKOLOGI</div>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">PFSO SNIPER MINDSET</h2>
+        <p class="text-gray-400 text-sm sm:text-base">
+          Pasar bukan tempat uang dicetak, melainkan tempat <strong class="text-amber-300">uang mengalir dari Si Jantungan kepada Si Kepala Dingin</strong>. Setup teknikal paling presisi tidak akan menyelamatkan akun jika jempol masih digerakkan oleh kepanikan.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        <div class="p-6 rounded-2xl card-dark border border-red-500/20">
+          <div class="text-xs font-mono-code text-red-400 mb-2">01 • GREED (KESERAKAHAN)</div>
+          <h3 class="text-lg font-bold text-white mb-2">“Setup lagi wangi, hajar Lot gajah biar cepat kaya!”</h3>
+          <p class="text-sm text-gray-400 mb-3">Mengabaikan batasan risiko karena euforia sesaat saat melihat candle bergerak kencang.</p>
+          <div class="text-xs font-mono-code text-red-300 bg-red-500/10 px-3 py-2 rounded-lg">Konsekuensi: Over-Leverage Kronis</div>
+        </div>
+
+        <div class="p-6 rounded-2xl card-dark border border-red-500/20">
+          <div class="text-xs font-mono-code text-red-400 mb-2">02 • DENIAL (MENOLAK KALAH)</div>
+          <h3 class="text-lg font-bold text-white mb-2">“Harga pasti mantul balik, geser Stop Loss ke bawah lagi.”</h3>
+          <p class="text-sm text-gray-400 mb-3">Menahan posisi rugi tanpa batas karena ego tidak mau mengakui analisa salah.</p>
+          <div class="text-xs font-mono-code text-red-300 bg-red-500/10 px-3 py-2 rounded-lg">Konsekuensi: Slaughtered (Disembelih Market)</div>
+        </div>
+
+        <div class="p-6 rounded-2xl card-dark border border-red-500/20">
+          <div class="text-xs font-mono-code text-red-400 mb-2">03 • REVENGE RAGE</div>
+          <h3 class="text-lg font-bold text-white mb-2">“Market memburu SL saya, balas dendam sekarang!”</h3>
+          <p class="text-sm text-gray-400 mb-3">Membuka posisi beruntun tanpa menunggu IDM &amp; kerangka CTC valid setelah terkena SL.</p>
+          <div class="text-xs font-mono-code text-red-300 bg-red-500/10 px-3 py-2 rounded-lg">Konsekuensi: MARGIN CALL / LIKUIDASI</div>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4 p-6 rounded-2xl bg-amber-500/5 border border-amber-500/25">
+        <div>
+          <div class="text-amber-400 font-bold text-sm mb-1">1. Mekanis Rigit</div>
+          <p class="text-xs text-gray-300">Eksekusi hanya saat kerangka Pullback CTC &amp; Strong FVG memenuhi 100% syarat.</p>
+        </div>
+        <div>
+          <div class="text-amber-400 font-bold text-sm mb-1">2. Perisai Ekuitas</div>
+          <p class="text-xs text-gray-300">Stop Loss ketat di luar batas struktur valid. Lindungi modal utama sebelum mengejar profit.</p>
+        </div>
+        <div>
+          <div class="text-amber-400 font-bold text-sm mb-1">3. Kontrol Ego</div>
+          <p class="text-xs text-gray-300">Terima kekalahan kecil sebagai biaya operasional bisnis trading yang terukur.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKSI 2: SISTEM MEKANIKAL CTC & TEHNIKAL ENTRY PULLBACK -->
+  <section id="sistem" class="py-20 border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+FONDASI ANALISA MANUAL
+Dari Kerangka Menuju Real Candle
+Trader pemula sering tertipu warna candle hijau dan merah. Sistem PFSO membedah pasar menggunakan garis kerangka Pullback Candle-to-Candle (CTC) dan memvalidasi kekuatan dorongan menggunakan Strong FVG.
+LANGKAH 01
+Kerangka CTC (Titik 1-2-3)
+Memisahkan Mother Bar dan Inside Bar (angin pasar) untuk menarik garis zig-zag struktur objektif tanpa bias emosi.
+LANGKAH 02
+Validasi IDM → HV / LV
+Tunggu pullback terdekat (Inducement/IDM) diambil lewat sweep ekor atau body candle agar High Valid (HV) & Low Valid (LV) terkunci sah.
+LANGKAH 03
+Sniper 1 & Sniper 2 ABC
+Petakan zona Sniper 1 ABC (Contra Trend) untuk koreksi dan Sniper 2 ABC (Follow Trend) selaras tren utama setelah kunci pintu terbuka.
+LANGKAH 04
+Konfirmasi Strong FVG
+Gunakan detektor kekuatan Fair Value Gap (FVG %) untuk memastikan dominasi institusi sebelum menarik pelatuk entry menuju TP1 & TP2.
+LABORATORIUM INTERAKTIF
+Fibo Roadmap & Konstitusi Zona Buta
+Masukkan koordinat H Valid dan L Valid XAUUSD untuk memetakan Zona Sniper 1, Zona Buta (TP1), dan Zona Sniper 2 secara otomatis.
+1. Input Range Struktur Valid
+
+High Valid (HV) XAUUSD
+Low Valid (LV) XAUUSD
+Arah Struktur Utama
+BEARISH (Sniper 2 Sell di Atas • Sniper 1 Buy di Bawah)
+BULLISH (Sniper 1 Sell di Atas • Sniper 2 Buy di Bawah)
+
+
+2. Simulator Disiplin (4 Syarat Mutlak)
+NO SETUP — DILARANG MENYENTUH TOMBOL ENTRY
+
+ZONA SNIPER 2 (FOLLOW TREND SELL — PREMIUM)
+AREA ENTRY ATAS
+
+
+
+Garis 2c (78.6%)
+2654.91
+
+
+Garis 2b (88.6%)
+2656.54
+
+
+Garis 2a / SL (100%)
+2658.40
+
+
+ZONA BUTA (BLACK ZONA • EQUILIBRIUM / TP 1)
+AREA LARANGAN ENTRY
+Area transisi tengah (38.2% – 61.8%). Wajib amankan profit TP 1 di titik tengah (2650.25) dan dilarang membuka posisi baru di tengah zona ini.
+Batas Atas: 2652.17  |  Batas Bawah: 2648.33
+
+ZONA SNIPER 1 (CONTRA TREND BUY — DISCOUNT)
+AREA ENTRY BAWAH
+
+
+
+Garis 1c (21.4%)
+2645.59
+
+
+Garis 1b (11.4%)
+2643.96
+
+
+Garis 1a / SL (0%)
+2642.10
+
+
+
+
+
+KAMUS ISTILAH RESMI
+Glosarium SMC PFSO
+
+IDM (Inducement)
+Umpan likuiditas pullback terdekat yang wajib disapu atau di-Break Out (ekor maupun body candle) sebelum titik High atau Low dinyatakan valid.
+HV & LV (High / Low Valid)
+Batas puncak dan lembah struktur pasar yang telah terkunci secara mekanis pasca pengambilan IDM.
+Pullback CTC (Candle-to-Candle)
+Metode pembacaan kerangka zig-zag murni dengan menyaring Inside Bar (angin pasar) agar struktur pasar terbaca jernih tanpa bias warna candle.
+Strong FVG (Fair Value Gap)
+Ketidakseimbangan harga tiga candle dengan perhitungan persentase kekuatan dominasi buyer/seller untuk memvalidasi zona pantulan institusi.
+Zona Buta (Black Zona / TP1)
+Area keseimbangan tengah (equilibrium) yang berfungsi sebagai target aman TP1 sekaligus area larangan membuka posisi baru.
+Sniper 1 ABC & Sniper 2 ABC
+Pemetaan 3 lapisan titik entry presisi (a, b, c). Sniper 1 untuk menangkap koreksi (Contra Trend), sedangkan Sniper 2 untuk mengikuti arah tren utama (Follow Trend).
+PILIH JALUR TRADING ANDA
+2 Jalur Utama PFSO
+Kami memisahkan secara tegas antara jalur Belajar Mandiri (Analisa Manual) menggunakan 2 indikator fundamental wajib dan jalur Praktis Otomatis (PFSO Weapon) bagi trader yang tidak ingin melakukan analisa manual.
+JALUR 1 • REKOMENDASI UTAMA
+Jalur Trader Mandiri (Edukasi + 2 Indikator Fundamental Wajib)
+
+Untuk Trader yang Ingin Menguasai Analisa Manual SMC
+PAKET LENGKAP ANALISA MANUAL • WAJIB BERPASANGAN
+
+
+Paket Trader Mandiri: Indikator Pullback CTC + Indikator Strong FVG + Akses Academy
+Untuk mempraktikkan SOP Tehnikal Entry Pullback secara akurat dan objektif tanpa bias warna candle, pengguna wajib menggunakan kedua indikator fundamental ini secara berpasangan (harga satuan Rp 550.000/indikator, hemat Rp 100.000 dalam paket bundling lengkap).
+1. Indikator Struktur Pullback CTC
+Nilai Rp 550.000
+Garis kerangka zig-zag murni pembersih noise candle, deteksi otomatis Titik 1-2-3, IDM wajib BO, serta pengunci HV & LV.
+2. Indikator Strong FVG Detector
+Nilai Rp 550.000
+Detektor zona ketidakseimbangan harga & persentase kekuatan dominasi buyer/seller secara real-time di chart MT4.
+✓ Lisensi Lifetime (1 Akun MT4)
+✓ Akses Penuh Ruang Belajar (pfsosnipertrader.com)
+✓ Bimbingan Belajar Bersama Komunitas
+
+Harga Satuan 2x Rp 550.000
+Rp 1.100.000
+HEMAT Rp 100.000 (PAKET WAJIB 2 INDI)
+Rp 1.000.000
+Sekali Bayar • Selamanya
+
+AMBIL PAKET MANDIRI
+
+
+
+
+JALUR 2 • SISTEM OTOMATIS
+PFSO Weapon (Bagi Trader yang Tidak Ingin Analisa Manual)
+
+Solusi Siap Pakai Tanpa Analisa Chart Manual
+AUTO TRADE & SNIPER
+EA PFSO FVG 80-100% Auto Trade (TP1 Edition) & Auto Sniper
+Rp 499.000
+• • Robot & Indikator Auto Trade (.ex4) terkunci 1 Akun MT4
+• • Filter sinyal valid probabilitas tinggi 80% – 100%
+• • Auto manajemen risiko & target profit TP1 / TP2
+• • Gratis akses ruang edukasi dasar
+PILIH SENJATA INI
+
+BEST SELLER EA
+
+EXPERT ADVISOR • XAUUSD H4
+PFSO Bandflow v42 EA
+
+Rp 699.000
+Rp 3.500.000
+
+
+PF2.60
+Max DD0.77%
+WinRate50.79%
+• • Uji Backtest 3 Tahun (2024–2026) pada XAUUSD H4
+• • Support TF M15 – D1 (Rekomendasi Utama H4)
+• • Auto Entry, Auto SL, & Target Bertahap TP 1–3
+PILIH SENJATA INI
+
+INDICATOR TREND & BAND
+PFSO Uptrick Band Flow Final
+
+Rp 950.000
+Rp 1.500.000
+• • Support TF M15 – D1 (Rekomendasi Utama H1 & H4)
+• • Pita tren otomatis (Cyan = BUY, Magenta = SELL)
+• • Garis Kuning Entry Retest + Auto SL & TP 1–3 (1.5R – 4.0R)
+• • Lisensi Lifetime + Free Edukasi
+PILIH SENJATA INI
+
+
+
+
+TANYA JAWAB UMUM
+Frequently Asked Questions
+Mengapa di Jalur Trader Mandiri wajib membeli 2 indikator sekaligus?
++
+Karena analisa manual SMC PFSO membutuhkan dua konfirmasi yang saling melengkapi: Indikator Pullback CTC bertugas memetakan kerangka struktur dan validasi IDM (HV/LV), sedangkan Indikator Strong FVG mengukur kekuatan dorongan institusi di zona entry. Jika hanya memakai salah satu, analisa menjadi pincang.
+Bagaimana sistem lisensi indikator dan EA bekerja?
++
+Seluruh file indikator maupun EA (.ex4) dikompilasi dan dikunci secara permanen (Lifetime) pada 1 Nomor Akun Trading MT4 milik Anda sehingga aman dari pembajakan.
+Apakah pemula boleh langsung trading di akun real?
++
+Sesuai Protokol Inkubasi PFSO, setiap member wajib melakukan latihan dan pengujian di Akun Demo terlebih dahulu hingga benar-benar memahami pembacaan kerangka CTC, Zona Buta, dan manajemen risiko sebelum menggunakan akun real.
+AKTIVASI LISENSI & RUANG BELAJAR
+Amankan Lisensi Sniper Anda
+Lengkapi data di bawah ini. Pesanan Anda akan langsung diteruskan ke WhatsApp Admin (0812-3294-1935) untuk konfirmasi pembayaran BCA / QRIS dan pengiriman file.
+Nama Lengkap *
+Alamat Email Gmail (Untuk Akses Academy) *
+Nomor Akun Trading MT4 *
+Pilihan Jalur & Paket PFSO *
+[Jalur 1 - Wajib Lengkap] Paket Trader Mandiri: Indikator Pullback CTC + Strong FVG + Academy (Rp 1.000.000)
+[Jalur 2 - Otomatis] EA PFSO FVG 80-100% Auto Trade & Auto Sniper (Rp 499.000)
+[Jalur 2 - Otomatis] PFSO Bandflow v42 EA XAUUSD H4 (Rp 699.000)
+[Jalur 2 - Otomatis] PFSO Uptrick Band Flow Final (Rp 950.000)
+
+Protokol Inkubasi & Ketentuan: Wajib uji coba di Akun Demo terlebih dahulu. Produk digital bersifat final (No-Refund) setelah file .ex4 dikompilasi ke nomor akun MT4 Anda.
+KIRIM PERMINTAAN LISENSI KE WHATSAPP ADMIN
+
+
+
+SMC PFSO SNIPER TRADER ACADEMY
+Disclaimer Risiko: Trading instrumen berjangka dan komoditas (XAUUSD) memiliki tingkat risiko tinggi. Seluruh materi, indikator, dan perangkat lunak di pfsosnipertrader.com & academy.pfsosnipertrader.com bertujuan sebagai sarana edukasi dan alat bantu analisa mekanikal.
+© 2026 PFSO Sniper Trader Academy • All Rights Reserved.
+
+💬 Chat Admin WA
+function hitungFibo() {
+const hv = parseFloat(document.getElementById('hvInput').value) || 0;
+const lv = parseFloat(document.getElementById('lvInput').value) || 0;
+const bias = document.getElementById('biasInput').value;
+const range = hv - lv;
+document.getElementById('zTopA').innerText = hv.toFixed(2);
+document.getElementById('zTopB').innerText = (lv + range * 0.886).toFixed(2);
+document.getElementById('zTopC').innerText = (lv + range * 0.786).toFixed(2);
+document.getElementById('zBlindHigh').innerText = (lv + range * 0.618).toFixed(2);
+document.getElementById('zMid').innerText = (lv + range * 0.50).toFixed(2);
+document.getElementById('zBlindLow').innerText = (lv + range * 0.382).toFixed(2);
+document.getElementById('zBotC').innerText = (lv + range * 0.214).toFixed(2);
+document.getElementById('zBotB').innerText = (lv + range * 0.114).toFixed(2);
+document.getElementById('zBotA').innerText = lv.toFixed(2);
+if (bias === 'bearish') {
+document.getElementById('topZoneTitle').innerText = 'ZONA SNIPER 2 (FOLLOW TREND SELL — PREMIUM)';
+document.getElementById('botZoneTitle').innerText = 'ZONA SNIPER 1 (CONTRA TREND BUY — DISCOUNT)';
+} else {
+document.getElementById('topZoneTitle').innerText = 'ZONA SNIPER 1 (CONTRA TREND SELL — PREMIUM)';
+document.getElementById('botZoneTitle').innerText = 'ZONA SNIPER 2 (FOLLOW TREND BUY — DISCOUNT)';
+}
+}
+function cekDisiplin() {
+const cbs = document.querySelectorAll('.syarat-cb');
+const allChecked = Array.from(cbs).every(cb => cb.checked);
+const badge = document.getElementById('statusBadge');
+if (allChecked) {
+badge.className = 'mt-5 p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 text-center font-mono-code text-xs font-bold';
+badge.innerText = 'SETUP VALID — SIAP EKSEKUSI SNIPER!';
+} else {
+badge.className = 'mt-5 p-3 rounded-xl bg-red-500/15 border border-red-500/40 text-red-300 text-center font-mono-code text-xs font-bold';
+badge.innerText = 'NO SETUP — DILARANG MENYENTUH TOMBOL ENTRY';
+}
+}
+function filterGlosarium() {
+const q = document.getElementById('searchGlosarium').value.toLowerCase();
+document.querySelectorAll('.glos-card').forEach(card => {
+card.style.display = card.innerText.toLowerCase().includes(q) ? 'block' : 'none';
+});
+}
+function pilihPaket(namaPaket) {
+const select = document.getElementById('orderPaket');
+select.value = namaPaket;
+document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+}
+function kirimOrderWA(e) {
+e.preventDefault();
+const nama = document.getElementById('orderNama').value.trim();
+const email = document.getElementById('orderEmail').value.trim();
+const mt4 = document.getElementById('orderMt4').value.trim();
+const paket = document.getElementById('orderPaket').value;
+const pesan = Halo Admin PFSO Sniper Trader, saya ingin memesan lisensi berikut:\n\n +
+• Nama: ${nama}\n +
+• Paket Dipilih: ${paket}\n +
+• Email Gmail (Akses Academy): ${email}\n +
+• Nomor Akun MT4: ${mt4}\n\n +
+Mohon infokan rekening BCA / QRIS untuk penyelesaian pembayaran. Terima kasih.;
+const url = https://wa.me{encodeURIComponent(pesan)};
+window.open(url, '_blank');
+}
+hitungFibo();
