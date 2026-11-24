@@ -1,131 +1,690 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>SMC PFSO Sniper Trader Academy | XAUUSD</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMC PFSO Sniper Trader Academy | XAUUSD Sistem Mekanikal M5</title>
+<meta name="description" content="SMC PFSO Sniper Trader Academy — mencetak Trader Mandiri berbasis analisa manual SMC Pullback CTC &amp; Strong FVG untuk XAUUSD M5.">
+<meta name="theme-color" content="#07080B">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#080A0F;color:#F3F4F6;font-family:system-ui,-apple-system,sans-serif;line-height:1.6}
-a{text-decoration:none;color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;z-index:50;background:rgba(8,10,15,.95);border-bottom:1px solid rgba(212,175,55,.35)}
-.nav{display:flex;justify-content:space-between;align-items:center;height:72px}
+:root{
+  --bg:#07080B;--bg2:#0B0D12;--panel:#0F1219;--panel2:#141824;
+  --line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+  --gold:#D4AF37;--gold-l:#F3DC8C;--gold-d:#9C7A1C;
+  --text:#F2EFE8;--muted:#9A9DA6;--muted2:#6B6F7A;
+  --green:#22C55E;--green-l:#6EE7B7;--red:#F87171;--rose:#FDA4AF;
+  --serif:"Cormorant Garamond","Playfair Display",Didot,"Bodoni 72","Bodoni MT",Georgia,"Times New Roman",serif;
+  --sans:Inter,"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono","SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+  --radius:18px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+strong{font-weight:700}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.gold{color:var(--gold-l)}
+.gold-text{background:linear-gradient(100deg,#FFF1C1 0%,#E9C46A 35%,#C9971F 65%,#F3DC8C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mono{font-family:var(--mono)}
+
+/* ---------- HEADER ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(7,8,11,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(212,175,55,.18)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
 .logo{display:flex;align-items:center;gap:12px}
-.logo-box{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#FDE68A,#D4AF37,#B45309);color:#000;font-weight:900;display:flex;align-items:center;justify-content:center}
-.menu{display:flex;gap:18px;font-size:13px;color:#9CA3AF}
-.btn{padding:10px 18px;border-radius:8px;background:linear-gradient(90deg,#FDE68A,#D4AF37);color:#000;font-weight:800;font-size:12px;border:none;cursor:pointer;display:inline-block;text-align:center}
-.btn-out{padding:8px 14px;border-radius:8px;border:1px solid rgba(212,175,55,.45);color:#FDE68A;font-size:12px;font-weight:600;background:transparent;cursor:pointer;display:inline-block;text-align:center}
-.hero{padding:68px 0;text-align:center;background:radial-gradient(circle at top,rgba(212,175,55,.15),transparent 60%);border-bottom:1px solid rgba(255,255,255,.1)}
-.pill{display:inline-block;padding:6px 14px;border-radius:99px;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.4);color:#FDE68A;font-size:11px;font-family:monospace;margin-bottom:16px}
-h1{font-size:clamp(30px,5vw,54px);font-weight:900;line-height:1.15;margin-bottom:12px}
-.gold{color:#FDE68A}
-.law{max-width:720px;margin:26px auto;padding:22px;border-radius:16px;background:#111622;border:1px solid rgba(212,175,55,.45)}
-section{padding:68px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.head{text-align:center;max-width:720px;margin:0 auto 40px}
-.tag{font-size:11px;font-family:monospace;color:#D4AF37;letter-spacing:2px;margin-bottom:6px}
-h2{font-size:clamp(24px,3.5vw,36px);font-weight:800;margin-bottom:10px}
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
-.card{background:#111622;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px}
-.card-gold{border:2px solid #D4AF37;background:linear-gradient(180deg,#151B29,#0D111A)}
-.inp{width:100%;padding:11px 14px;border-radius:10px;background:#06080C;border:1px solid rgba(255,255,255,.15);color:#fff;font-size:14px;margin-top:6px;margin-bottom:14px}
-.zone{padding:18px;border-radius:14px;margin-bottom:14px;border:1px solid rgba(255,255,255,.12);background:#0D111A}
-.z3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px;font-family:monospace;font-size:13px}
-.zcell{background:#06080C;padding:10px;border-radius:8px}
-.wa{position:fixed;bottom:20px;right:20px;background:#059669;color:#fff;padding:12px 18px;border-radius:99px;font-size:13px;font-weight:700;z-index:90}
-@media(max-width:800px){.menu{display:none}}
+.logo-mark{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#FFF1C1,#D4AF37 55%,#8A6A14);color:#0A0A0A;font-family:var(--serif);font-weight:700;font-size:18px;box-shadow:0 6px 24px rgba(212,175,55,.25)}
+.logo-name{font-weight:800;letter-spacing:.08em;font-size:14px}
+.logo-sub{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.18em}
+.menu{display:flex;gap:28px;font-size:13px;color:var(--muted)}
+.menu a{transition:color .2s}
+.menu a:hover{color:var(--gold-l)}
+.nav-cta{display:flex;gap:10px}
+
+/* ---------- BUTTONS ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:700;font-size:13px;letter-spacing:.02em;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;font-family:var(--sans);white-space:nowrap}
+.btn-gold{background:linear-gradient(100deg,#F7E3A1,#D4AF37 55%,#B8901F);color:#0A0A0A;box-shadow:0 10px 30px -10px rgba(212,175,55,.6)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(212,175,55,.75)}
+.btn-ghost{background:rgba(255,255,255,.02);border-color:rgba(212,175,55,.4);color:var(--gold-l)}
+.btn-ghost:hover{background:rgba(212,175,55,.08);border-color:var(--gold)}
+.btn-lg{padding:16px 28px;font-size:14px;border-radius:14px}
+.btn-sm{padding:9px 16px;font-size:12px;border-radius:10px}
+.btn-block{width:100%}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:84px 0 96px;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:780px;height:780px;background:radial-gradient(circle,rgba(212,175,55,.16),transparent 62%);pointer-events:none}
+.hero::after{content:"";position:absolute;left:-200px;bottom:-260px;width:620px;height:620px;background:radial-gradient(circle,rgba(212,175,55,.07),transparent 65%);pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:999px;border:1px solid rgba(212,175,55,.35);background:rgba(212,175,55,.07);font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--gold-l)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.18);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(212,175,55,.22)}50%{box-shadow:0 0 0 7px rgba(212,175,55,0)}}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(40px,5.6vw,72px);line-height:1.02;letter-spacing:-.01em;margin:22px 0 22px}
+.hero h1 .thin{display:block;font-weight:400;font-style:italic;color:var(--text);font-size:.62em;letter-spacing:.02em;margin-top:10px}
+.quote{border-left:2px solid var(--gold);padding:4px 0 4px 16px;font-family:var(--serif);font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--gold-l);margin-bottom:20px}
+.lead{color:var(--muted);font-size:16px;max-width:560px;margin-bottom:32px}
+.lead strong{color:var(--text)}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);padding-top:26px;gap:12px}
+.stat + .stat{border-left:1px solid var(--line);padding-left:20px}
+.stat-num{font-family:var(--serif);font-size:clamp(28px,3vw,38px);font-weight:600;line-height:1}
+.stat-lbl{font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.04em}
+
+.chart-card{position:relative;border-radius:26px;padding:22px;background:linear-gradient(160deg,#141824 0%,#0B0D13 60%,#090A0E 100%);border:1px solid rgba(212,175,55,.28);box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.03) inset,0 0 80px -30px rgba(212,175,55,.35)}
+.chart-card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(243,220,140,.6),transparent 35%,transparent 65%,rgba(212,175,55,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.chart-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px}
+.chart-title{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--muted)}
+.chart-title b{color:var(--text);font-weight:700}
+.pair-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.45);color:#86EFAC;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em}
+.pair-badge .dot{background:var(--green);box-shadow:0 0 0 4px rgba(34,197,94,.2);animation:none}
+.chart-svg{border-radius:16px;background:radial-gradient(ellipse at 70% 30%,rgba(212,175,55,.08),transparent 60%),#07080C;border:1px solid var(--line)}
+.konst{margin-top:16px;padding:16px 18px;border-radius:14px;background:linear-gradient(90deg,rgba(212,175,55,.12),rgba(212,175,55,.03));border:1px solid rgba(212,175,55,.35)}
+.konst small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--gold);margin-bottom:4px}
+.konst div{font-family:var(--mono);font-weight:700;font-size:clamp(12px,1.35vw,15px);letter-spacing:.04em}
+.konst .sep{color:var(--gold);margin:0 8px}
+
+/* ---------- SECTIONS ---------- */
+section{padding:96px 0;border-bottom:1px solid var(--line)}
+.sec-alt{background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.head{max-width:760px;margin:0 auto 52px;text-align:center}
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--gold);margin-bottom:14px}
+.eyebrow::before,.eyebrow::after{content:"—";margin:0 10px;color:var(--gold-d)}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(32px,4vw,50px);line-height:1.08;margin-bottom:16px}
+.head p{color:var(--muted);font-size:15px}
+.head p strong{color:var(--text)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{position:relative;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,.3)}
+
+/* Mindset */
+.psy{border-color:rgba(248,113,113,.22)}
+.psy:hover{border-color:rgba(248,113,113,.5)}
+.psy-num{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--red)}
+.psy-num span:last-child{font-family:var(--serif);font-size:44px;line-height:1;color:rgba(248,113,113,.18);letter-spacing:0}
+.psy h3{font-family:var(--serif);font-size:24px;font-weight:600;font-style:italic;line-height:1.25;margin:10px 0 14px}
+.psy p{font-size:13.5px;color:var(--muted)}
+.psy p b{color:var(--rose)}
+.laws{margin-top:28px;border-radius:22px;padding:34px;background:linear-gradient(135deg,rgba(212,175,55,.1),rgba(212,175,55,.02) 55%),var(--panel);border:1px solid rgba(212,175,55,.35)}
+.laws-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+.laws-head h3{font-family:var(--serif);font-size:30px;font-weight:600}
+.laws-head small{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold)}
+.law{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:14px;background:rgba(0,0,0,.28);border:1px solid var(--line)}
+.law-n{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold);color:var(--gold-l);font-family:var(--serif);font-size:20px;font-weight:600}
+.law h4{font-family:var(--mono);font-size:13px;letter-spacing:.06em;margin-bottom:4px;color:var(--text)}
+.law p{font-size:13px;color:var(--muted)}
+
+/* Kalkulator */
+.calc-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:start}
+.calc-panel{border-color:rgba(212,175,55,.3)}
+.calc-panel h3{font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:4px}
+.calc-panel .hint{font-size:12.5px;color:var(--muted);margin-bottom:22px}
+label{display:block;font-size:11px;font-family:var(--mono);letter-spacing:.14em;color:var(--muted);margin-bottom:8px;text-transform:uppercase}
+.inp{width:100%;padding:13px 15px;border-radius:12px;background:#06070A;border:1px solid var(--line2);color:var(--text);font-size:15px;font-family:var(--mono);margin-bottom:18px;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
+.inp:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.15)}
+select.inp{font-family:var(--sans);font-size:13px;color:var(--gold-l);cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.range-box{display:flex;justify-content:space-between;padding:14px 16px;border-radius:12px;background:rgba(212,175,55,.06);border:1px dashed rgba(212,175,55,.35);font-family:var(--mono);font-size:13px}
+.range-box span:first-child{color:var(--muted)}
+.err{display:none;margin-top:12px;font-size:12px;color:var(--red)}
+.zones{display:flex;flex-direction:column;gap:14px}
+.zone{border-radius:16px;padding:20px;border:1px solid var(--line);background:var(--panel)}
+.zone-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.zone-head strong{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em}
+.zone-tag{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:999px;letter-spacing:.12em;white-space:nowrap}
+.z-top{border-color:rgba(244,63,94,.35);background:linear-gradient(90deg,rgba(244,63,94,.07),transparent 60%),var(--panel)}
+.z-top strong{color:var(--rose)}
+.z-top .zone-tag{background:rgba(244,63,94,.12);color:var(--rose)}
+.z-mid{border-color:rgba(212,175,55,.45);background:linear-gradient(90deg,rgba(212,175,55,.1),transparent 60%),var(--panel)}
+.z-mid strong{color:var(--gold-l)}
+.z-mid .zone-tag{background:rgba(212,175,55,.14);color:var(--gold-l)}
+.z-bot{border-color:rgba(16,185,129,.35);background:linear-gradient(90deg,rgba(16,185,129,.08),transparent 60%),var(--panel)}
+.z-bot strong{color:var(--green-l)}
+.z-bot .zone-tag{background:rgba(16,185,129,.12);color:var(--green-l)}
+.z3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.zc{padding:12px;border-radius:10px;background:#06070A;border:1px solid var(--line)}
+.zc small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted2);letter-spacing:.06em}
+.zc div{font-family:var(--mono);font-size:17px;font-weight:700;margin-top:2px}
+.mid-row{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.mid-val{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--gold-l)}
+.mid-row p{font-size:12.5px;color:var(--muted);max-width:340px}
+
+/* Katalog */
+.track-label{display:flex;align-items:center;gap:14px;margin:0 0 22px}
+.track-label span{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);white-space:nowrap}
+.track-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(212,175,55,.45),transparent)}
+.main-pack{position:relative;border-radius:26px;padding:44px;background:radial-gradient(ellipse at top right,rgba(212,175,55,.16),transparent 55%),linear-gradient(180deg,#151925,#0C0E14);border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(212,175,55,.06),0 40px 80px -40px rgba(212,175,55,.35);margin-bottom:72px}
+.ribbon{position:absolute;top:-14px;left:44px;padding:6px 16px;border-radius:999px;background:linear-gradient(90deg,#F7E3A1,#D4AF37);color:#0A0A0A;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.16em}
+.pack-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:40px;align-items:stretch}
+.main-pack h3{font-family:var(--serif);font-size:clamp(26px,3vw,36px);font-weight:600;line-height:1.15;margin:8px 0 14px}
+.main-pack .desc{font-size:14.5px;color:#C9CBD1;margin-bottom:24px}
+.inc{display:flex;flex-direction:column;gap:12px}
+.inc-item{display:flex;gap:14px;padding:16px 18px;border-radius:14px;background:rgba(0,0,0,.3);border:1px solid var(--line)}
+.inc-ico{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.35);color:var(--gold-l);font-family:var(--mono);font-size:13px;font-weight:700}
+.inc-item h4{font-size:14px;margin-bottom:3px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.inc-item h4 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--gold-l);font-weight:600}
+.inc-item p{font-size:12.5px;color:var(--muted)}
+.price-box{display:flex;flex-direction:column;justify-content:center;padding:32px;border-radius:20px;background:#07080B;border:1px solid rgba(212,175,55,.3);text-align:center}
+.price-box .calc-line{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.9;margin-bottom:16px;text-align:left;border-bottom:1px dashed var(--line2);padding-bottom:14px}
+.price-box .calc-line div{display:flex;justify-content:space-between;gap:10px}
+.strike{color:var(--muted2);text-decoration:line-through;font-family:var(--mono);font-size:15px}
+.save{display:inline-block;margin:8px auto 6px;padding:4px 12px;border-radius:999px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.4);color:#86EFAC;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em}
+.price{font-family:var(--serif);font-size:clamp(40px,4.6vw,56px);font-weight:600;line-height:1.05}
+.price-note{font-size:12px;color:var(--muted);margin:8px 0 22px}
+
+.weapon{display:flex;flex-direction:column;padding:30px}
+.w-tag{align-self:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:.16em;padding:5px 11px;border-radius:999px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.3);color:var(--gold-l);margin-bottom:18px}
+.weapon.best{border-color:rgba(212,175,55,.55);background:radial-gradient(ellipse at top,rgba(212,175,55,.1),transparent 60%),linear-gradient(180deg,var(--panel2),var(--panel))}
+.weapon.best .w-tag{background:linear-gradient(90deg,#F7E3A1,#D4AF37);color:#0A0A0A;border-color:transparent;font-weight:700}
+.weapon h3{font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.2;margin-bottom:14px;min-height:58px}
+.w-price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.w-price b{font-family:var(--serif);font-size:34px;font-weight:600;color:var(--gold-l);line-height:1}
+.w-price .strike{font-size:13px}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.kpi div{padding:10px 6px;border-radius:10px;background:#06070A;border:1px solid var(--line);text-align:center}
+.kpi small{display:block;font-family:var(--mono);font-size:9.5px;color:var(--muted2);letter-spacing:.1em}
+.kpi strong{font-family:var(--mono);font-size:15px;color:var(--green-l)}
+.w-list{list-style:none;font-size:13px;color:var(--muted);margin-bottom:24px;flex:1}
+.w-list li{position:relative;padding-left:20px;margin-bottom:8px}
+.w-list li::before{content:"";position:absolute;left:2px;top:8px;width:7px;height:7px;transform:rotate(45deg);border:1px solid var(--gold);background:rgba(212,175,55,.25)}
+
+/* Order */
+.order-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+.order-copy h2{text-align:left}
+.order-copy p{color:var(--muted);font-size:15px;margin-bottom:24px}
+.steps{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.step{display:flex;gap:14px;align-items:center;font-size:14px;color:#C9CBD1}
+.step span{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(212,175,55,.5);color:var(--gold-l);font-family:var(--mono);font-size:12px}
+.admin{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.35);color:#86EFAC;font-family:var(--mono);font-size:13px}
+.order-card{border-radius:24px;padding:36px;border:1px solid rgba(212,175,55,.4);background:linear-gradient(180deg,#141824,#0B0D13);box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
+.order-card .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.req{color:var(--gold)}
+.wa-btn{background:linear-gradient(100deg,#25D366,#128C7E);color:#fff;box-shadow:0 12px 30px -12px rgba(37,211,102,.6)}
+.wa-btn:hover{transform:translateY(-2px)}
+.form-note{font-size:11.5px;color:var(--muted2);text-align:center;margin-top:12px}
+
+footer{padding:40px 0;text-align:center;color:var(--muted2);font-size:12.5px}
+footer .f-quote{font-family:var(--serif);font-style:italic;color:var(--gold-l);font-size:16px;margin-bottom:8px}
+
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:90;display:inline-flex;align-items:center;gap:10px;padding:13px 20px 13px 14px;border-radius:999px;background:linear-gradient(100deg,#25D366,#128C7E);color:#fff;font-weight:700;font-size:13px;box-shadow:0 14px 34px -10px rgba(37,211,102,.6);transition:transform .2s}
+.wa-float:hover{transform:translateY(-3px)}
+.wa-float svg{width:22px;height:22px}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .calc-grid,.pack-grid,.order-grid{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  .order-copy h2{text-align:center}
+  .order-copy{text-align:center}
+  .steps{align-items:center}
+}
+@media (max-width:860px){
+  .menu{display:none}
+}
+@media (max-width:680px){
+  .wrap{padding:0 18px}
+  .hero{padding:56px 0 64px}
+  section{padding:68px 0}
+  .grid3,.grid2{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr 1fr}
+  .stat + .stat{padding-left:12px}
+  .stat-lbl{font-size:11px}
+  .main-pack{padding:32px 20px 24px}
+  .ribbon{left:20px}
+  .laws{padding:24px 18px}
+  .order-card{padding:24px 18px}
+  .order-card .row2{grid-template-columns:1fr;gap:0}
+  .nav-cta .btn-ghost{display:none}
+  .wa-float span{display:none}
+  .wa-float{padding:14px}
+  .weapon h3{min-height:0}
+  .zc div{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header><div class="wrap nav">
-<a href="#" class="logo"><div class="logo-box">PF</div><div><div style="font-weight:800">PFSO SNIPER</div><div style="font-size:10px;color:#D4AF37;font-family:monospace">XAUUSD • ACADEMY</div></div></a>
-<nav class="menu"><a href="#psikologi">Psikologi</a><a href="#kalkulator">Fibo Roadmap</a><a href="#katalog" class="gold">2 Jalur Paket</a><a href="#order">Order</a></nav>
-<div style="display:flex;gap:8px"><a href="https://pfsosnipertrader.com" target="_blank" class="btn-out">Ruang Belajar</a><a href="#order" class="btn">AMANKAN LISENSI</a></div>
-</div></header>
 
-<section class="hero"><div class="wrap">
-<div class="pill">● PUSAT EDUKASI TRADER MANDIRI • ANALISA MANUAL SMC CTC</div>
-<h1><span class="gold">SMC PFSO SNIPER</span><br>TRADER ACADEMY</h1>
-<p style="font-size:18px;color:#FDE68A;font-style:italic;margin-bottom:14px">“Satu Peluru, Satu Eksekusi, Disiplin Tanpa Kompromi Emosi”</p>
-<p style="max-width:720px;margin:0 auto;color:#9CA3AF;font-size:15px">Mencetak <strong style="color:#fff">Trader Mandiri</strong> melalui pembelajaran bersama berbasis analisa manual struktur pasar murni (<strong class="gold">Pullback Candle-to-Candle &amp; Strong FVG</strong>)—atau pilih jalur otomatis <strong style="color:#fff">PFSO Weapon</strong> bagi trader sibuk.</p>
-<div class="law"><div style="font-size:11px;color:#D4AF37;font-family:monospace;letter-spacing:2px">HUKUM MUTLAK KONSTITUSI SETUP</div><div style="font-size:20px;font-weight:800;font-family:monospace;margin-top:4px">NO IDM = NO SETUP • IDM WAJIB DI-BO (SWEEP / BODY)</div></div>
-<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="#katalog" class="btn" style="padding:14px 26px;font-size:14px">LIHAT 2 JALUR PAKET</a><a href="#kalkulator" class="btn-out" style="padding:14px 26px;font-size:14px">SIMULASI FIBO M5</a></div>
-</div></section>
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo" aria-label="PFSO Sniper Trader Academy">
+      <div class="logo-mark">PF</div>
+      <div>
+        <div class="logo-name">PFSO SNIPER</div>
+        <div class="logo-sub">XAUUSD • ACADEMY</div>
+      </div>
+    </a>
+    <nav class="menu" aria-label="Navigasi utama">
+      <a href="#mindset">Mindset</a>
+      <a href="#kalkulator">Fibo Roadmap</a>
+      <a href="#katalog">2 Jalur Paket</a>
+      <a href="#order">Order</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://academy.pfsosnipertrader.com" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Ruang Belajar</a>
+      <a href="#order" class="btn btn-gold btn-sm">Amankan Lisensi</a>
+    </div>
+  </div>
+</header>
 
-<section id="psikologi"><div class="wrap">
-<div class="head"><div class="tag">MEDAN TEMPUR PSIKOLOGI</div><h2>PFSO SNIPER MINDSET</h2><p style="color:#9CA3AF;font-size:14px">Pasar mengalirkan uang dari <strong class="gold">Si Jantungan kepada Si Kepala Dingin</strong>. Setup akurat tidak berguna jika jempol digerakkan panik.</p></div>
-<div class="grid3">
-<div class="card" style="border-color:rgba(239,68,68,.4)"><div style="color:#F87171;font-size:12px;font-family:monospace">01 • GREED</div><h3 style="margin:8px 0">“Hajar Lot gajah biar cepat kaya!”</h3><p style="font-size:13px;color:#9CA3AF">Akibat: Over-Leverage Kronis &amp; akun hancur dalam satu sapuan candle.</p></div>
-<div class="card" style="border-color:rgba(239,68,68,.4)"><div style="color:#F87171;font-size:12px;font-family:monospace">02 • DENIAL</div><h3 style="margin:8px 0">“Harga pasti balik, geser SL lagi.”</h3><p style="font-size:13px;color:#9CA3AF">Akibat: Slaughtered (Disembelih pasar karena menolak mengakui analisa salah).</p></div>
-<div class="card" style="border-color:rgba(239,68,68,.4)"><div style="color:#F87171;font-size:12px;font-family:monospace">03 • REVENGE RAGE</div><h3 style="margin:8px 0">“Balas dendam sekarang juga!”</h3><p style="font-size:13px;color:#9CA3AF">Akibat: MARGIN CALL karena entry tanpa menunggu IDM &amp; kerangka CTC valid.</p></div>
-</div>
-</div></section>
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="badge"><span class="dot"></span>XAUUSD • SISTEM MEKANIKAL M5</div>
+      <h1><span class="gold-text">SMC PFSO SNIPER</span><span class="thin">Trader Academy</span></h1>
+      <p class="quote">Satu Peluru, Satu Eksekusi, Disiplin Tanpa Kompromi Emosi</p>
+      <p class="lead">Mencetak <strong>Trader Mandiri</strong> yang mampu membaca pasar sendiri melalui analisa manual <strong class="gold">SMC Pullback CTC (Candle-to-Candle) &amp; Strong FVG</strong> — terstruktur, objektif, dan bebas tebak-tebakan.</p>
+      <div class="cta-row">
+        <a href="#katalog" class="btn btn-gold btn-lg">Mulai Belajar Sekarang <span aria-hidden="true">→</span></a>
+        <a href="#order" class="btn btn-ghost btn-lg">Amankan Lisensi Engine</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="stat-num gold-text">100%</div><div class="stat-lbl">Rule-Based Murni</div></div>
+        <div class="stat"><div class="stat-num gold-text">M5</div><div class="stat-lbl">Eksekusi Presisi</div></div>
+        <div class="stat"><div class="stat-num gold-text">24/7</div><div class="stat-lbl">Analisa &amp; Sistem</div></div>
+      </div>
+    </div>
 
-<section id="kalkulator" style="background:#0A0D14"><div class="wrap">
-<div class="head"><div class="tag">LABORATORIUM INTERAKTIF</div><h2>Fibo Roadmap &amp; Zona Buta</h2><p style="color:#9CA3AF;font-size:14px">Masukkan koordinat <strong>High Valid (HV)</strong> dan <strong>Low Valid (LV)</strong> untuk memetakan Zona Sniper 1, Zona Buta (TP1), dan Zona Sniper 2.</p></div>
-<div class="grid2">
-<div class="card" style="border-color:rgba(212,175,55,.4)">
-<label style="font-size:12px;color:#9CA3AF">High Valid (HV)</label><input id="hv" type="number" step="0.01" value="2658.40" oninput="calc()" class="inp">
-<label style="font-size:12px;color:#9CA3AF">Low Valid (LV)</label><input id="lv" type="number" step="0.01" value="2642.10" oninput="calc()" class="inp">
-<label style="font-size:12px;color:#9CA3AF">Arah Struktur</label>
-<select id="bias" onchange="calc()" class="inp" style="color:#FDE68A"><option value="bear">BEARISH (Sniper 2 Sell Atas • Sniper 1 Buy Bawah)</option><option value="bull">BULLISH (Sniper 1 Sell Atas • Sniper 2 Buy Bawah)</option></select>
-</div>
-<div>
-<div class="zone" style="border-color:rgba(244,63,94,.4)"><strong id="tTop" style="color:#FDA4AF;font-size:13px">ZONA SNIPER 2 (PREMIUM)</strong><div class="z3"><div class="zcell"><small style="color:#9CA3AF">2c (78.6%)</small><div id="zc2">2654.91</div></div><div class="zcell"><small style="color:#9CA3AF">2b (88.6%)</small><div id="zb2">2656.54</div></div><div class="zcell"><small style="color:#FDA4AF">2a / SL</small><div id="za2">2658.40</div></div></div></div>
-<div class="zone" style="border-color:rgba(212,175,55,.45)"><strong class="gold" style="font-size:13px">ZONA BUTA (BLACK ZONA • TP 1)</strong><p style="font-size:12px;color:#9CA3AF;margin-top:6px">Target TP 1 di titik tengah: <strong id="zmid" class="gold">2650.25</strong> (Dilarang entry baru di area transisi ini).</p></div>
-<div class="zone" style="border-color:rgba(16,185,129,.4)"><strong id="tBot" style="color:#6EE7B7;font-size:13px">ZONA SNIPER 1 (DISCOUNT)</strong><div class="z3"><div class="zcell"><small style="color:#9CA3AF">1c (21.4%)</small><div id="zc1">2645.59</div></div><div class="zcell"><small style="color:#9CA3AF">1b (11.4%)</small><div id="zb1">2643.96</div></div><div class="zcell"><small style="color:#6EE7B7">1a / SL</small><div id="za1">2642.10</div></div></div></div>
-</div>
-</div>
-</div></section>
+    <div class="chart-card">
+      <div class="chart-top">
+        <div class="chart-title"><b>XAUUSD</b> • PULLBACK CTC • GOLDEN RATIO</div>
+        <div class="pair-badge"><span class="dot"></span>XAUUSD • M5</div>
+      </div>
+      <svg class="chart-svg" viewBox="0 0 520 340" role="img" aria-label="Ilustrasi grafik candlestick XAUUSD dengan spiral Golden Ratio">
+        <defs>
+          <linearGradient id="gUp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7E3A1"/><stop offset="1" stop-color="#C9971F"/></linearGradient>
+          <linearGradient id="gDn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A2A12"/><stop offset="1" stop-color="#1A140A"/></linearGradient>
+          <linearGradient id="gSp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1C1"/><stop offset=".5" stop-color="#D4AF37"/><stop offset="1" stop-color="#8A6A14"/></linearGradient>
+          <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D4AF37" stop-opacity=".18"/><stop offset="1" stop-color="#D4AF37" stop-opacity="0"/></linearGradient>
+          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <clipPath id="clip"><rect x="0" y="0" width="520" height="340" rx="16"/></clipPath>
+        </defs>
+        <g clip-path="url(#clip)">
+          <!-- grid -->
+          <g stroke="rgba(255,255,255,.05)" stroke-width="1">
+            <line x1="0" y1="60" x2="520" y2="60"/><line x1="0" y1="120" x2="520" y2="120"/><line x1="0" y1="180" x2="520" y2="180"/><line x1="0" y1="240" x2="520" y2="240"/><line x1="0" y1="300" x2="520" y2="300"/>
+            <line x1="104" y1="0" x2="104" y2="340"/><line x1="208" y1="0" x2="208" y2="340"/><line x1="312" y1="0" x2="312" y2="340"/><line x1="416" y1="0" x2="416" y2="340"/>
+          </g>
+          <!-- golden rectangle guides -->
+          <g fill="none" stroke="rgba(212,175,55,.14)" stroke-width="1" stroke-dasharray="3 5">
+            <rect x="182" y="-42" width="290" height="290"/>
+            <line x1="182" y1="128" x2="472" y2="128"/>
+            <line x1="352" y1="-42" x2="352" y2="248"/>
+          </g>
+          <!-- fibo levels -->
+          <g font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" letter-spacing="1">
+            <line x1="0" y1="84" x2="520" y2="84" stroke="rgba(253,164,175,.35)" stroke-dasharray="4 4"/>
+            <text x="10" y="78" fill="#FDA4AF">HV • 1.000</text>
+            <line x1="0" y1="192" x2="520" y2="192" stroke="rgba(212,175,55,.45)" stroke-dasharray="4 4"/>
+            <text x="10" y="186" fill="#F3DC8C">TP1 • 0.500</text>
+            <line x1="0" y1="300" x2="520" y2="300" stroke="rgba(110,231,183,.35)" stroke-dasharray="4 4"/>
+            <text x="10" y="294" fill="#6EE7B7">LV • 0.000</text>
+          </g>
+          <!-- trend area -->
+          <path d="M39 300 L117 252 L195 210 L273 220 L351 156 L429 124 L468 88 L468 340 L39 340 Z" fill="url(#gArea)"/>
+          <!-- candles -->
+          <g>
+<line x1="39" y1="280.5" x2="39" y2="307.1" stroke="#E9C46A" stroke-width="1.2"/><rect x="34" y="286.0" width="10" height="16.4" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="58.5" y1="265.1" x2="58.5" y2="297.4" stroke="#E9C46A" stroke-width="1.2"/><rect x="53.5" y="271.0" width="10" height="15.9" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="78" y1="242.0" x2="78" y2="279.2" stroke="#E9C46A" stroke-width="1.2"/><rect x="73" y="251.8" width="10" height="18.2" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="97.5" y1="244.0" x2="97.5" y2="272.9" stroke="#8B5A2B" stroke-width="1.2"/><rect x="92.5" y="250.5" width="10" height="12.4" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
+<line x1="117" y1="250.9" x2="117" y2="283.2" stroke="#8B5A2B" stroke-width="1.2"/><rect x="112" y="260.6" width="10" height="15.1" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
+<line x1="136.5" y1="258.8" x2="136.5" y2="279.5" stroke="#E9C46A" stroke-width="1.2"/><rect x="131.5" y="262.5" width="10" height="9.0" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="156" y1="232.1" x2="156" y2="270.6" stroke="#E9C46A" stroke-width="1.2"/><rect x="151" y="241.5" width="10" height="20.5" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="175.5" y1="212.4" x2="175.5" y2="246.4" stroke="#E9C46A" stroke-width="1.2"/><rect x="170.5" y="218.8" width="10" height="21.6" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="195" y1="198.4" x2="195" y2="224.8" stroke="#E9C46A" stroke-width="1.2"/><rect x="190" y="202.4" width="10" height="16.8" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="214.5" y1="189.4" x2="214.5" y2="223.0" stroke="#8B5A2B" stroke-width="1.2"/><rect x="209.5" y="201.9" width="10" height="12.6" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
+<line x1="234" y1="209.5" x2="234" y2="231.5" stroke="#8B5A2B" stroke-width="1.2"/><rect x="229" y="212.5" width="10" height="13.7" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
+<line x1="253.5" y1="220.8" x2="253.5" y2="239.6" stroke="#8B5A2B" stroke-width="1.2"/><rect x="248.5" y="227.7" width="10" height="7.4" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
+<line x1="273" y1="219.0" x2="273" y2="239.4" stroke="#E9C46A" stroke-width="1.2"/><rect x="268" y="225.3" width="10" height="7.9" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="292.5" y1="189.2" x2="292.5" y2="226.6" stroke="#E9C46A" stroke-width="1.2"/><rect x="287.5" y="197.2" width="10" height="25.2" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="312" y1="169.9" x2="312" y2="206.6" stroke="#E9C46A" stroke-width="1.2"/><rect x="307" y="176.2" width="10" height="23.4" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="331.5" y1="144.4" x2="331.5" y2="180.9" stroke="#E9C46A" stroke-width="1.2"/><rect x="326.5" y="153.4" width="10" height="22.6" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="351" y1="139.9" x2="351" y2="172.7" stroke="#8B5A2B" stroke-width="1.2"/><rect x="346" y="151.6" width="10" height="11.8" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
+<line x1="370.5" y1="154.7" x2="370.5" y2="187.4" stroke="#8B5A2B" stroke-width="1.2"/><rect x="365.5" y="162.6" width="10" height="15.0" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
+<line x1="390" y1="156.0" x2="390" y2="180.6" stroke="#E9C46A" stroke-width="1.2"/><rect x="385" y="166.1" width="10" height="9.4" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="409.5" y1="136.3" x2="409.5" y2="171.8" stroke="#E9C46A" stroke-width="1.2"/><rect x="404.5" y="142.3" width="10" height="22.9" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="429" y1="112.2" x2="429" y2="151.4" stroke="#E9C46A" stroke-width="1.2"/><rect x="424" y="115.8" width="10" height="24.4" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="448.5" y1="94.8" x2="448.5" y2="122.9" stroke="#E9C46A" stroke-width="1.2"/><rect x="443.5" y="98.8" width="10" height="20.8" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+<line x1="468" y1="76.1" x2="468" y2="100.0" stroke="#E9C46A" stroke-width="1.2"/><rect x="463" y="85.3" width="10" height="10.7" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
+          </g>
+          <!-- golden spiral -->
+          <path d="M356.6 128.0 L356.7 127.6 L356.8 127.1 L356.8 126.7 L356.8 126.2 L356.8 125.7 L356.7 125.2 L356.5 124.7 L356.3 124.2 L356.1 123.7 L355.8 123.3 L355.4 122.8 L355.0 122.4 L354.6 121.9 L354.1 121.6 L353.5 121.2 L352.9 120.9 L352.3 120.7 L351.6 120.5 L350.9 120.3 L350.2 120.2 L349.4 120.2 L348.6 120.3 L347.8 120.4 L347.0 120.6 L346.2 120.9 L345.4 121.2 L344.7 121.7 L343.9 122.2 L343.2 122.8 L342.5 123.5 L341.8 124.3 L341.3 125.1 L340.7 126.0 L340.3 127.0 L339.9 128.1 L339.6 129.2 L339.5 130.4 L339.4 131.6 L339.4 132.9 L339.6 134.1 L339.8 135.4 L340.2 136.7 L340.8 138.0 L341.4 139.3 L342.2 140.5 L343.1 141.7 L344.2 142.9 L345.4 144.0 L346.7 145.0 L348.2 145.8 L349.7 146.6 L351.4 147.3 L353.1 147.8 L355.0 148.2 L356.9 148.4 L358.9 148.4 L361.0 148.2 L363.1 147.9 L365.2 147.3 L367.3 146.6 L369.3 145.6 L371.4 144.4 L373.4 143.0 L375.3 141.4 L377.1 139.6 L378.7 137.6 L380.2 135.3 L381.6 132.9 L382.7 130.3 L383.7 127.5 L384.4 124.5 L384.8 121.5 L385.0 118.3 L384.9 115.0 L384.5 111.6 L383.7 108.2 L382.7 104.8 L381.3 101.5 L379.5 98.1 L377.4 94.9 L374.9 91.7 L372.1 88.7 L369.0 85.9 L365.5 83.4 L361.7 81.1 L357.6 79.1 L353.2 77.4 L348.6 76.1 L343.7 75.1 L338.6 74.6 L333.4 74.6 L328.0 75.1 L322.5 76.0 L317.0 77.5 L311.5 79.5 L306.1 82.1 L300.7 85.3 L295.6 89.0 L290.6 93.3 L286.0 98.1 L281.6 103.5 L277.7 109.4 L274.2 115.9 L271.2 122.8 L268.8 130.1 L267.1 137.8 L265.9 145.9 L265.6 154.3 L265.9 162.9 L267.1 171.7 L269.1 180.6 L272.0 189.5 L275.8 198.3 L280.5 207.0 L286.1 215.5 L292.6 223.7 L300.0 231.5 L308.3 238.7 L317.5 245.4 L327.6 251.4 L338.4 256.6 L349.9 260.9 L362.2 264.3 L375.0 266.6 L388.3 267.7 L402.1 267.7 L416.2 266.4 L430.5 263.8 L444.9 259.7 L459.3 254.3" fill="none" stroke="url(#gSp)" stroke-width="2.2" stroke-linecap="round" filter="url(#glow)" opacity=".95"/>
+          <circle cx="352" cy="128" r="4" fill="#FFF1C1"/>
+          <circle cx="352" cy="128" r="10" fill="none" stroke="rgba(243,220,140,.5)"/>
+          <text x="364" y="120" font-family="Georgia,serif" font-style="italic" font-size="15" fill="#F3DC8C">φ 1.618</text>
+          <!-- entry marker -->
+          <g font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" font-weight="700">
+            <rect x="398" y="150" width="96" height="22" rx="6" fill="rgba(34,197,94,.14)" stroke="rgba(34,197,94,.55)"/>
+            <text x="446" y="164.5" text-anchor="middle" fill="#86EFAC" letter-spacing="1">SNIPER ENTRY</text>
+          </g>
+        </g>
+      </svg>
+      <div class="konst">
+        <small>KONSTITUSI TERTINGGI</small>
+        <div>NO IDM = NO SETUP<span class="sep">•</span>IDM WAJIB DI-BO</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section id="katalog"><div class="wrap">
-<div class="head"><div class="tag">PILIH JALUR TRADING ANDA</div><h2>2 Jalur Utama PFSO</h2><p style="color:#9CA3AF;font-size:14px">Jalur 1 untuk <strong>Trader Mandiri (Analisa Manual SMC)</strong> dengan 2 indikator wajib berpasangan, dan Jalur 2 untuk <strong>PFSO Weapon (Otomatis)</strong>.</p></div>
+<!-- ================= MINDSET ================= -->
+<section id="mindset" class="sec-alt">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">MEDAN TEMPUR PSIKOLOGI</span>
+      <h2>PFSO Sniper <span class="gold-text">Mindset</span></h2>
+      <p>Pasar mengalirkan uang dari <strong>Si Jantungan kepada Si Kepala Dingin</strong>. Setup seakurat apa pun tidak berguna jika jempol digerakkan oleh panik dan emosi.</p>
+    </div>
 
-<div class="card card-gold" style="margin-bottom:44px">
-<div class="pill">JALUR 1 • REKOMENDASI UTAMA (TRADER MANDIRI)</div>
-<h3 style="font-size:24px;margin-bottom:10px">Paket Trader Mandiri: Indikator Pullback CTC + Indikator Strong FVG + Akses Academy</h3>
-<p style="font-size:14px;color:#D1D5DB;margin-bottom:18px">Untuk mempraktikkan SOP <strong>Tehnikal Entry Pullback</strong> secara akurat dan objektif, pengguna <strong class="gold">wajib menggunakan kedua indikator fundamental ini secara berpasangan</strong> (harga satuan Rp 550.000/indikator, hemat Rp 100.000 dalam paket lengkap).</p>
-<div class="grid2" style="margin-bottom:20px">
-1. Indikator Struktur Pullback CTC (Nilai Rp 550.000)Garis kerangka zig-zag murni pembersih noise candle, deteksi Titik 1-2-3, IDM wajib BO, serta pengunci HV & LV.
-2. Indikator Strong FVG Detector (Nilai Rp 550.000)Detektor zona ketidakseimbangan harga & persentase kekuatan dominasi buyer/seller secara real-time di MT4.
+    <div class="grid3">
+      <article class="card psy">
+        <div class="psy-num"><span>MUSUH • GREED</span><span>01</span></div>
+        <h3>“Hajar lot gajah biar cepat kaya!”</h3>
+        <p><b>Akibat:</b> Over-leverage kronis &amp; akun hancur dalam satu sapuan candle.</p>
+      </article>
+      <article class="card psy">
+        <div class="psy-num"><span>MUSUH • DENIAL</span><span>02</span></div>
+        <h3>“Harga pasti balik, geser SL lagi.”</h3>
+        <p><b>Akibat:</b> Slaughtered — disembelih pasar karena menolak mengakui analisa salah.</p>
+      </article>
+      <article class="card psy">
+        <div class="psy-num"><span>MUSUH • REVENGE RAGE</span><span>03</span></div>
+        <h3>“Balas dendam sekarang juga!”</h3>
+        <p><b>Akibat:</b> Margin call karena entry tanpa menunggu IDM &amp; kerangka CTC yang valid.</p>
+      </article>
+    </div>
 
+    <div class="laws">
+      <div class="laws-head">
+        <h3>3 Hukum <span class="gold-text">Mutlak</span> Sniper</h3>
+        <small>DILANGGAR = KELUAR DARI MEDAN TEMPUR</small>
+      </div>
+      <div class="grid3">
+        <div class="law">
+          <div class="law-n">I</div>
+          <div><h4>NO IDM = NO SETUP</h4><p>Tanpa Inducement yang jelas, tidak ada setup. Tidak ada pengecualian, tidak ada “feeling”.</p></div>
+        </div>
+        <div class="law">
+          <div class="law-n">II</div>
+          <div><h4>IDM WAJIB DI-BO</h4><p>IDM harus ditembus (Sweep / Body Close) terlebih dahulu sebelum zona Sniper dianggap aktif.</p></div>
+        </div>
+        <div class="law">
+          <div class="law-n">III</div>
+          <div><h4>SATU PELURU, SATU EKSEKUSI</h4><p>Satu setup, satu entry, SL terkunci. Kalah diterima, menang diamankan — tanpa balas dendam.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-Rp 1.100.000 HEMAT Rp 100.000Rp 1.000.000 (Lifetime • 1 Akun MT4 + Akses Academy)
-AMBIL PAKET MANDIRI
+<!-- ================= KALKULATOR ================= -->
+<section id="kalkulator">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">LABORATORIUM INTERAKTIF</span>
+      <h2>Kalkulator <span class="gold-text">Fibo Roadmap</span></h2>
+      <p>Masukkan koordinat <strong>High Valid (HV)</strong> dan <strong>Low Valid (LV)</strong>. Sistem otomatis memetakan <strong>Zona Sniper 2</strong> (atas), <strong>Zona Buta TP1</strong> (tengah), dan <strong>Zona Sniper 1</strong> (bawah).</p>
+    </div>
 
-JALUR 2 • PFSO WEAPON (BAGI YANG TIDAK INGIN ANALISA MANUAL)
+    <div class="calc-grid">
+      <div class="card calc-panel">
+        <h3>Koordinat Struktur</h3>
+        <p class="hint">Gunakan HV &amp; LV yang sudah dikunci oleh Indikator Pullback CTC.</p>
+        <label for="hv">High Valid (HV)</label>
+        <input id="hv" class="inp" type="number" step="0.01" inputmode="decimal" value="2658.40">
+        <label for="lv">Low Valid (LV)</label>
+        <input id="lv" class="inp" type="number" step="0.01" inputmode="decimal" value="2642.10">
+        <label for="bias">Arah Struktur</label>
+        <select id="bias" class="inp">
+          <option value="bear">BEARISH — Sniper 2 Sell (Atas) • Sniper 1 Buy (Bawah)</option>
+          <option value="bull">BULLISH — Sniper 1 Sell (Atas) • Sniper 2 Buy (Bawah)</option>
+        </select>
+        <div class="range-box"><span>Range HV − LV</span><span id="range" class="gold">16.30</span></div>
+        <p class="err" id="calcErr">⚠ High Valid harus lebih besar dari Low Valid.</p>
+      </div>
 
-AUTO TRADE & SNIPEREA PFSO FVG 80-100% Auto Trade & Auto SniperRp 499.000Filter sinyal probabilitas 80–100%, Auto Trade TP1/TP2, 1 Akun MT4 + Free Edukasi.PILIH SENJATA INI
-BEST SELLER EA • XAUUSD H4PFSO Bandflow v42 EARp 699.000 Rp 3.500.000Uji 3 Tahun: PF 2.60 • Max DD 0.77% • WinRate 50.79%. Support TF M15–D1 (Utama H4).PILIH SENJATA INI
-INDICATOR TREND & BANDPFSO Uptrick Band Flow FinalRp 950.000 Rp 1.500.000Pita tren Cyan/Magenta, Garis Kuning Entry Retest + Auto SL & TP 1–3 (Utama H1 & H4).PILIH SENJATA INI
+      <div class="zones">
+        <div class="zone z-top">
+          <div class="zone-head"><strong id="tTop">ZONA SNIPER 2 — FOLLOW TREND SELL</strong><span class="zone-tag">PREMIUM</span></div>
+          <div class="z3">
+            <div class="zc"><small>2c • 78.6%</small><div id="zc2">–</div></div>
+            <div class="zc"><small>2b • 88.6%</small><div id="zb2">–</div></div>
+            <div class="zc"><small>2a • SL / HV</small><div id="za2">–</div></div>
+          </div>
+        </div>
+        <div class="zone z-mid">
+          <div class="zone-head"><strong>ZONA BUTA (BLACK ZONE) • TP 1</strong><span class="zone-tag">EQUILIBRIUM 50%</span></div>
+          <div class="mid-row">
+            <div class="mid-val" id="zmid">–</div>
+            <p>Target TP 1 di titik tengah. <strong class="gold">Dilarang entry baru</strong> di area transisi ini.</p>
+          </div>
+        </div>
+        <div class="zone z-bot">
+          <div class="zone-head"><strong id="tBot">ZONA SNIPER 1 — CONTRA TREND BUY</strong><span class="zone-tag">DISCOUNT</span></div>
+          <div class="z3">
+            <div class="zc"><small>1c • 21.4%</small><div id="zc1">–</div></div>
+            <div class="zc"><small>1b • 11.4%</small><div id="zb1">–</div></div>
+            <div class="zc"><small>1a • SL / LV</small><div id="za1">–</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-AKTIVASI LISENSIAmankan Lisensi Sniper AndaPesanan diteruskan otomatis ke WhatsApp Admin (0812-3294-1935).
-Nama Lengkap *
-Email Gmail (Untuk Akses Academy) *
-Nomor Akun Trading MT4 *
-Pilihan Paket PFSO *
-[Jalur 1 - Wajib Lengkap] Paket Trader Mandiri: Indikator Pullback CTC + Strong FVG + Academy (Rp 1.000.000)
-[Jalur 2] EA PFSO FVG 80-100% Auto Trade & Auto Sniper (Rp 499.000)
-[Jalur 2] PFSO Bandflow v42 EA XAUUSD H4 (Rp 699.000)
-[Jalur 2] PFSO Uptrick Band Flow Final (Rp 950.000)
+<!-- ================= KATALOG ================= -->
+<section id="katalog" class="sec-alt">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">PILIH JALUR TRADING ANDA</span>
+      <h2>2 Jalur Utama <span class="gold-text">PFSO</span></h2>
+      <p>Jalur 1 untuk <strong>Trader Mandiri</strong> yang ingin menguasai analisa manual SMC dengan 2 indikator wajib berpasangan. Jalur 2 untuk <strong>PFSO Weapon</strong> — bagi yang tidak ingin analisa manual.</p>
+    </div>
 
-KIRIM PESANAN KE WHATSAPP ADMIN
+    <!-- JALUR 1 -->
+    <div class="track-label"><span>JALUR 1 • REKOMENDASI UTAMA — TRADER MANDIRI</span></div>
+    <div class="main-pack">
+      <div class="ribbon">★ REKOMENDASI UTAMA</div>
+      <div class="pack-grid">
+        <div>
+          <h3>Paket Trader Mandiri: <span class="gold-text">Indikator Pullback CTC + Indikator Strong FVG + Akses Academy</span></h3>
+          <p class="desc">Untuk mempraktikkan SOP <strong>Teknikal Entry Pullback</strong> secara akurat dan objektif, Anda <strong class="gold">wajib menggunakan kedua indikator ini secara berpasangan</strong>. Satu membaca kerangka struktur, satu membaca kekuatan zona — keduanya saling mengunci.</p>
+          <div class="inc">
+            <div class="inc-item">
+              <div class="inc-ico">01</div>
+              <div><h4>Indikator Pullback CTC <em>Rp 550.000</em></h4><p>Kerangka zig-zag murni pembersih noise candle, deteksi Titik 1-2-3, IDM wajib BO, serta pengunci HV &amp; LV.</p></div>
+            </div>
+            <div class="inc-item">
+              <div class="inc-ico">02</div>
+              <div><h4>Indikator Strong FVG <em>Rp 550.000</em></h4><p>Detektor zona ketidakseimbangan harga &amp; persentase kekuatan dominasi buyer/seller secara real-time di MT4.</p></div>
+            </div>
+            <div class="inc-item">
+              <div class="inc-ico">03</div>
+              <div><h4>Akses Academy <em>INCLUDED</em></h4><p>Ruang belajar di <strong class="gold">academy.pfsosnipertrader.com</strong> — materi SOP, studi kasus, dan pembelajaran bersama.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="price-box">
+          <div class="calc-line">
+            <div><span>Pullback CTC</span><span>Rp 550.000</span></div>
+            <div><span>Strong FVG</span><span>Rp 550.000</span></div>
+            <div><span>Akses Academy</span><span class="gold">Bonus</span></div>
+          </div>
+          <div class="strike">Rp 1.100.000</div>
+          <div><span class="save">HEMAT Rp 100.000</span></div>
+          <div class="price gold-text">Rp 1.000.000</div>
+          <p class="price-note">Lifetime • 1 Akun MT4 • Akses Academy</p>
+          <button type="button" class="btn btn-gold btn-lg btn-block" data-pick="[Jalur 1] Paket Trader Mandiri: Indikator Pullback CTC + Strong FVG + Academy (Rp 1.000.000)">Ambil Paket Trader Mandiri →</button>
+        </div>
+      </div>
+    </div>
 
+    <!-- JALUR 2 -->
+    <div class="track-label"><span>JALUR 2 • PFSO WEAPON — UNTUK YANG TIDAK INGIN ANALISA MANUAL</span></div>
+    <div class="grid3">
+      <article class="card weapon">
+        <span class="w-tag">AUTO TRADE &amp; SNIPER</span>
+        <h3>EA PFSO FVG 80-100% Auto Trade &amp; Auto Sniper</h3>
+        <div class="w-price"><b>Rp 499.000</b></div>
+        <ul class="w-list">
+          <li>Filter sinyal probabilitas FVG 80–100%</li>
+          <li>Auto Trade dengan target TP1 / TP2</li>
+          <li>1 Akun MT4 + Free Edukasi</li>
+        </ul>
+        <button type="button" class="btn btn-ghost btn-block" data-pick="[Jalur 2] EA PFSO FVG 80-100% Auto Trade &amp; Auto Sniper (Rp 499.000)">Pilih Senjata Ini</button>
+      </article>
 
-© 2026 SMC PFSO Sniper Trader Academy • All Rights Reserved.
-💬 Chat Admin WA
-function calc(){
-const h=parseFloat(document.getElementById('hv').value)||0,l=parseFloat(document.getElementById('lv').value)||0,b=document.getElementById('bias').value,r=h-l;
-document.getElementById('za2').innerText=h.toFixed(2);document.getElementById('zb2').innerText=(l+r*.886).toFixed(2);document.getElementById('zc2').innerText=(l+r*.786).toFixed(2);
-document.getElementById('zmid').innerText=(l+r*.5).toFixed(2);
-document.getElementById('zc1').innerText=(l+r*.214).toFixed(2);document.getElementById('zb1').innerText=(l+r*.114).toFixed(2);document.getElementById('za1').innerText=l.toFixed(2);
-document.getElementById('tTop').innerText=b==='bear'?'ZONA SNIPER 2 (FOLLOW TREND SELL — PREMIUM)':'ZONA SNIPER 1 (CONTRA TREND SELL — PREMIUM)';
-document.getElementById('tBot').innerText=b==='bear'?'ZONA SNIPER 1 (CONTRA TREND BUY — DISCOUNT)':'ZONA SNIPER 2 (FOLLOW TREND BUY — DISCOUNT)';
-}
-function pick(p){document.getElementById('paket').value=p;document.getElementById('order').scrollIntoView({behavior:'smooth'});}
-function sendWA(e){
-e.preventDefault();
-const m='Halo Admin PFSO Sniper Trader, saya ingin memesan:\n• Nama: '+document.getElementById('nama').value+'\n• Paket: '+document.getElementById('paket').value+'\n• Email Gmail: '+document.getElementById('email').value+'\n• Akun MT4: '+document.getElementById('mt4').value+'\n\nMohon info rekening BCA / QRIS. Terima kasih.';
-window.open('wa.me');
-}
-calc();
+      <article class="card weapon best">
+        <span class="w-tag">BEST SELLER • EA XAUUSD H4</span>
+        <h3>PFSO Bandflow v42 EA XAUUSD H4</h3>
+        <div class="w-price"><b>Rp 699.000</b><span class="strike">Rp 3.500.000</span></div>
+        <div class="kpi">
+          <div><small>PROFIT FACTOR</small><strong>2.60</strong></div>
+          <div><small>MAX DD</small><strong>0.77%</strong></div>
+          <div><small>WIN RATE</small><strong>50.79%</strong></div>
+        </div>
+        <ul class="w-list">
+          <li>Hasil uji backtest 3 tahun</li>
+          <li>Support TF M15–D1 (utama H4)</li>
+        </ul>
+        <button type="button" class="btn btn-gold btn-block" data-pick="[Jalur 2] PFSO Bandflow v42 EA XAUUSD H4 (Rp 699.000)">Pilih Senjata Ini</button>
+      </article>
+
+      <article class="card weapon">
+        <span class="w-tag">INDIKATOR TREND &amp; BAND</span>
+        <h3>PFSO Uptrick Band Flow Final</h3>
+        <div class="w-price"><b>Rp 950.000</b><span class="strike">Rp 1.500.000</span></div>
+        <ul class="w-list">
+          <li>Pita tren Cyan / Magenta</li>
+          <li>Garis Kuning Entry Retest</li>
+          <li>Auto SL &amp; TP 1–3 (utama H1 &amp; H4)</li>
+        </ul>
+        <button type="button" class="btn btn-ghost btn-block" data-pick="[Jalur 2] PFSO Uptrick Band Flow Final (Rp 950.000)">Pilih Senjata Ini</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ORDER ================= -->
+<section id="order">
+  <div class="wrap order-grid">
+    <div class="order-copy">
+      <span class="eyebrow">AKTIVASI LISENSI</span>
+      <h2>Amankan Lisensi <span class="gold-text">Sniper</span> Anda</h2>
+      <p>Isi formulir, lalu pesanan diteruskan otomatis ke WhatsApp Admin dengan format order yang sudah rapi.</p>
+      <div class="steps">
+        <div class="step"><span>1</span>Isi data &amp; pilih paket PFSO</div>
+        <div class="step"><span>2</span>Kirim pesanan ke WhatsApp Admin</div>
+        <div class="step"><span>3</span>Lakukan pembayaran &amp; terima aktivasi lisensi</div>
+      </div>
+      <div class="admin">● Admin WA: 0812-3294-1935</div>
+    </div>
+
+    <form class="order-card" id="orderForm" novalidate>
+      <label for="nama">Nama Lengkap <span class="req">*</span></label>
+      <input id="nama" class="inp" type="text" placeholder="Nama sesuai identitas" autocomplete="name" required>
+      <div class="row2">
+        <div>
+          <label for="email">Email Gmail <span class="req">*</span></label>
+          <input id="email" class="inp" type="email" placeholder="nama@gmail.com" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="mt4">Nomor Akun MT4 <span class="req">*</span></label>
+          <input id="mt4" class="inp" type="text" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        </div>
+      </div>
+      <label for="paket">Pilihan Paket PFSO <span class="req">*</span></label>
+      <select id="paket" class="inp" required>
+        <option value="[Jalur 1] Paket Trader Mandiri: Indikator Pullback CTC + Strong FVG + Academy (Rp 1.000.000)">[Jalur 1] Paket Trader Mandiri — Pullback CTC + Strong FVG + Academy (Rp 1.000.000)</option>
+        <option value="[Jalur 2] EA PFSO FVG 80-100% Auto Trade &amp; Auto Sniper (Rp 499.000)">[Jalur 2] EA PFSO FVG 80-100% Auto Trade &amp; Auto Sniper (Rp 499.000)</option>
+        <option value="[Jalur 2] PFSO Bandflow v42 EA XAUUSD H4 (Rp 699.000)">[Jalur 2] PFSO Bandflow v42 EA XAUUSD H4 (Rp 699.000)</option>
+        <option value="[Jalur 2] PFSO Uptrick Band Flow Final (Rp 950.000)">[Jalur 2] PFSO Uptrick Band Flow Final (Rp 950.000)</option>
+      </select>
+      <p class="err" id="formErr">⚠ Mohon lengkapi semua kolom dengan benar.</p>
+      <button type="submit" class="btn btn-lg btn-block wa-btn" style="margin-top:6px">Kirim Pesanan ke WhatsApp Admin</button>
+      <p class="form-note">Anda akan diarahkan ke WhatsApp dengan pesan order otomatis.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="f-quote">“Satu Peluru, Satu Eksekusi, Disiplin Tanpa Kompromi Emosi”</p>
+    <p>© 2026 SMC PFSO Sniper Trader Academy • All Rights Reserved.</p>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/6281232941935" target="_blank" rel="noopener" aria-label="Chat Admin via WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.38 9.38 0 0 1-1.44-5c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.24 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.04.72C5.79.72.7 5.8.7 12.06c0 2 .52 3.95 1.52 5.67L.6 23.6l6.01-1.58a11.33 11.33 0 0 0 5.43 1.38h.01c6.25 0 11.34-5.08 11.34-11.34 0-3.03-1.18-5.88-3.32-8.02z"/></svg>
+  <span>Chat Admin WA</span>
+</a>
+
+<script>
+(function(){
+  var WA_NUMBER = '6281232941935';
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* ---------- Kalkulator Fibo Roadmap ---------- */
+  function fmt(v){ return v.toFixed(2); }
+  function calc(){
+    var h = parseFloat($('hv').value), l = parseFloat($('lv').value), bias = $('bias').value;
+    var ids = ['za2','zb2','zc2','zmid','zc1','zb1','za1'];
+    if (isNaN(h) || isNaN(l) || h <= l){
+      $('calcErr').style.display = 'block';
+      ids.forEach(function(id){ $(id).textContent = '–'; });
+      $('range').textContent = '–';
+      return;
+    }
+    $('calcErr').style.display = 'none';
+    var r = h - l;
+    $('range').textContent = fmt(r);
+    $('za2').textContent = fmt(h);
+    $('zb2').textContent = fmt(l + r * 0.886);
+    $('zc2').textContent = fmt(l + r * 0.786);
+    $('zmid').textContent = fmt(l + r * 0.5);
+    $('zc1').textContent = fmt(l + r * 0.214);
+    $('zb1').textContent = fmt(l + r * 0.114);
+    $('za1').textContent = fmt(l);
+    $('tTop').textContent = bias === 'bear' ? 'ZONA SNIPER 2 — FOLLOW TREND SELL' : 'ZONA SNIPER 1 — CONTRA TREND SELL';
+    $('tBot').textContent = bias === 'bear' ? 'ZONA SNIPER 1 — CONTRA TREND BUY' : 'ZONA SNIPER 2 — FOLLOW TREND BUY';
+  }
+  ['hv','lv'].forEach(function(id){ $(id).addEventListener('input', calc); });
+  $('bias').addEventListener('change', calc);
+  calc();
+
+  /* ---------- Pilih paket dari katalog ---------- */
+  document.querySelectorAll('[data-pick]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      $('paket').value = btn.getAttribute('data-pick');
+      $('order').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(function(){ $('nama').focus({ preventScroll: true }); }, 600);
+    });
+  });
+
+  /* ---------- Order via WhatsApp ---------- */
+  function buildMessage(){
+    return 'Halo Admin PFSO Sniper Trader, saya ingin memesan:\n' +
+      '• Nama: ' + $('nama').value.trim() + '\n' +
+      '• Paket: ' + $('paket').value + '\n' +
+      '• Email Gmail: ' + $('email').value.trim() + '\n' +
+      '• Nomor Akun MT4: ' + $('mt4').value.trim() + '\n\n' +
+      'Mohon info rekening BCA / QRIS. Terima kasih.';
+  }
+  $('orderForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = $('nama').value.trim() && $('mt4').value.trim() && /^\S+@\S+\.\S+$/.test($('email').value.trim());
+    $('formErr').style.display = ok ? 'none' : 'block';
+    if (!ok) return;
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(buildMessage()), '_blank', 'noopener');
+  });
+
+  var floatMsg = 'Halo Admin PFSO Sniper Trader, saya ingin memesan:\n• Nama: \n• Paket: \n• Email Gmail: \n• Nomor Akun MT4: ';
+  $('waFloat').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(floatMsg);
+})();
+</script>
+</body>
+</html>
