@@ -1,452 +1,124 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SMC PFSO Sniper Trader Academy | XAUUSD Mechanical System</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background-color: #080A0F;
-      color: #F3F4F6;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
-    header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(8, 10, 15, 0.95);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.35);
-    }
-    .nav-wrap { display: flex; align-items: center; justify-content: space-between; height: 74px; }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .brand-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: linear-gradient(135deg, #FDE68A, #D4AF37, #B45309);
-      color: #000; font-weight: 900; display: flex; align-items: center; justify-content: center;
-    }
-    .brand-title { font-weight: 800; letter-spacing: 1px; font-size: 16px; }
-    .brand-sub { font-size: 10px; color: #D4AF37; letter-spacing: 1.5px; font-family: monospace; }
-    .nav-links { display: flex; gap: 20px; font-size: 13px; color: #9CA3AF; }
-    .nav-links a:hover { color: #FDE68A; }
-    .nav-cta { display: flex; gap: 10px; align-items: center; }
-    .btn-outline {
-      padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.4);
-      color: #FDE68A; font-size: 12px; font-weight: 600;
-    }
-    .btn-gold {
-      padding: 10px 18px; border-radius: 8px;
-      background: linear-gradient(90deg, #FDE68A, #D4AF37, #B45309);
-      color: #000; font-weight: 800; font-size: 12px; border: none; cursor: pointer;
-      display: inline-block; text-align: center;
-    }
-    .hero {
-      padding: 70px 0 80px; text-align: center;
-      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.14), transparent 60%);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .pill {
-      display: inline-block; padding: 6px 16px; border-radius: 99px;
-      background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.4);
-      color: #FDE68A; font-size: 11px; font-family: monospace; margin-bottom: 18px;
-    }
-    .hero h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 900; line-height: 1.15; margin-bottom: 14px; }
-    .gold-text {
-      background: linear-gradient(135deg, #FDE68A, #D4AF37, #D97706);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero-quote { font-size: 19px; color: #FDE68A; font-style: italic; margin-bottom: 16px; font-weight: 600; }
-    .hero-desc { max-width: 750px; margin: 0 auto 30px; color: #9CA3AF; font-size: 15px; }
-    .law-box {
-      max-width: 720px; margin: 0 auto 30px; padding: 24px; border-radius: 16px;
-      background: #111622; border: 1px solid rgba(212, 175, 55, 0.4);
-    }
-    .law-label { font-size: 11px; font-family: monospace; color: #D4AF37; letter-spacing: 2px; margin-bottom: 6px; }
-    .law-main { font-size: clamp(16px, 2.5vw, 22px); font-weight: 800; font-family: monospace; color: #fff; }
-    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .hero-btns .btn-gold { padding: 14px 28px; font-size: 14px; }
-    .btn-dark {
-      padding: 14px 28px; border-radius: 8px; background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12); font-size: 14px; font-weight: 700;
-    }
-    section { padding: 72px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .sec-head { text-align: center; max-width: 740px; margin: 0 auto 44px; }
-    .sec-tag { font-size: 11px; font-family: monospace; color: #D4AF37; letter-spacing: 2px; margin-bottom: 8px; }
-    .sec-title { font-size: clamp(26px, 3.5vw, 38px); font-weight: 800; margin-bottom: 12px; }
-    .sec-sub { color: #9CA3AF; font-size: 14px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
-    .card {
-      background: linear-gradient(180deg, #111622, #0C1018);
-      border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px;
-    }
-    .card-danger { border-color: rgba(239, 68, 68, 0.35); }
-    .badge-red {
-      display: inline-block; margin-top: 12px; padding: 6px 12px; border-radius: 8px;
-      background: rgba(239, 68, 68, 0.14); color: #FCA5A5; font-size: 12px; font-family: monospace;
-    }
-    .rules-bar {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px;
-      margin-top: 26px; padding: 24px; border-radius: 16px;
-      background: rgba(212, 175, 55, 0.06); border: 1px solid rgba(212, 175, 55, 0.35);
-    }
-    .calc-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 24px; }
-    @media (max-width: 860px) { .calc-grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 12px; color: #9CA3AF; margin-bottom: 6px; }
-    .input-box {
-      width: 100%; padding: 11px 14px; border-radius: 10px; background: #06080C;
-      border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 14px; font-family: monospace;
-    }
-    .cb-item { display: flex; gap: 10px; align-items: flex-start; font-size: 12px; color: #D1D5DB; margin-bottom: 10px; cursor: pointer; }
-    .status-no {
-      margin-top: 16px; padding: 12px; border-radius: 10px; text-align: center;
-      background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.45);
-      color: #FCA5A5; font-weight: 800; font-size: 12px; font-family: monospace;
-    }
-    .status-ok {
-      margin-top: 16px; padding: 12px; border-radius: 10px; text-align: center;
-      background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5);
-      color: #6EE7B7; font-weight: 800; font-size: 12px; font-family: monospace;
-    }
-    .zone-box { padding: 20px; border-radius: 16px; margin-bottom: 16px; }
-    .zone-top { background: rgba(136, 19, 55, 0.22); border: 1px solid rgba(244, 63, 94, 0.35); }
-    .zone-mid { background: #141820; border: 1px solid rgba(212, 175, 55, 0.4); }
-    .zone-bot { background: rgba(6, 78, 59, 0.22); border: 1px solid rgba(16, 185, 129, 0.35); }
-    .zone-cells { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
-    .z-cell { background: rgba(0,0,0,0.45); padding: 10px; border-radius: 10px; font-family: monospace; }
-    .z-cell small { display: block; color: #9CA3AF; font-size: 11px; }
-    .z-cell strong { font-size: 15px; color: #fff; }
-    .path-header {
-      display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px;
-      padding-bottom: 14px; border-bottom: 1px solid rgba(212, 175, 55, 0.35); margin-bottom: 24px;
-    }
-    .jalur1-card {
-      background: linear-gradient(180deg, #151B29, #0D111A);
-      border: 2px solid #D4AF37; border-radius: 22px; padding: 30px;
-      display: grid; grid-template-columns: 1.7fr 1fr; gap: 26px; align-items: center;
-      margin-bottom: 60px;
-    }
-    @media (max-width: 860px) { .jalur1-card { grid-template-columns: 1fr; } }
-    .indi-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
-    @media (max-width: 600px) { .indi-pair { grid-template-columns: 1fr; } }
-    .indi-item { background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.1); padding: 16px; border-radius: 12px; }
-    .price-box {
-      background: rgba(0,0,0,0.55); border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 16px; padding: 24px; text-align: center;
-    }
-    .price-big { font-size: 34px; font-weight: 900; font-family: monospace; margin: 10px 0; }
-    .weapon-card { display: flex; flex-direction: column; justify-content: space-between; }
-    .weapon-card ul { list-style: none; margin: 14px 0 20px; font-size: 13px; color: #9CA3AF; }
-    .weapon-card li { margin-bottom: 8px; }
-    .stats-row {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
-      background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px; text-align: center; font-family: monospace; font-size: 12px;
-    }
-    .btn-dark-full {
-      width: 100%; padding: 12px; border-radius: 10px; background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15); color: #fff; font-weight: 700; cursor: pointer;
-    }
-    .btn-dark-full:hover { background: #D4AF37; color: #000; }
-    details {
-      background: #111622; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px;
-      padding: 18px 22px; margin-bottom: 12px;
-    }
-    summary { font-weight: 700; cursor: pointer; font-size: 15px; }
-    details p { margin-top: 10px; font-size: 13px; color: #9CA3AF; }
-    .order-box {
-      max-width: 680px; margin: 0 auto; background: #111622;
-      border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 22px; padding: 32px;
-    }
-    .wa-float {
-      position: fixed; bottom: 20px; right: 20px; z-index: 99;
-      background: #059669; color: #fff; padding: 12px 18px; border-radius: 99px;
-      font-size: 13px; font-weight: 700;
-    }
-    footer { padding: 44px 0; text-align: center; font-size: 12px; color: #9CA3AF; }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SMC PFSO Sniper Trader Academy | XAUUSD</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#080A0F;color:#F3F4F6;font-family:system-ui,-apple-system,sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:50;background:rgba(8,10,15,.95);border-bottom:1px solid rgba(212,175,55,.35)}
+.nav{display:flex;justify-content:space-between;align-items:center;height:72px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-box{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#FDE68A,#D4AF37,#B45309);color:#000;font-weight:900;display:flex;align-items:center;justify-content:center}
+.menu{display:flex;gap:18px;font-size:13px;color:#9CA3AF}
+.btn{padding:10px 18px;border-radius:8px;background:linear-gradient(90deg,#FDE68A,#D4AF37);color:#000;font-weight:800;font-size:12px;border:none;cursor:pointer;display:inline-block}
+.btn-out{padding:8px 14px;border-radius:8px;border:1px solid rgba(212,175,55,.45);color:#FDE68A;font-size:12px;font-weight:600}
+.hero{padding:68px 0;text-align:center;background:radial-gradient(circle at top,rgba(212,175,55,.15),transparent 60%);border-bottom:1px solid rgba(255,255,255,.1)}
+.pill{display:inline-block;padding:6px 14px;border-radius:99px;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.4);color:#FDE68A;font-size:11px;font-family:monospace;margin-bottom:16px}
+h1{font-size:clamp(30px,5vw,54px);font-weight:900;line-height:1.15;margin-bottom:12px}
+.gold{color:#FDE68A}
+.law{max-width:720px;margin:26px auto;padding:22px;border-radius:16px;background:#111622;border:1px solid rgba(212,175,55,.45)}
+section{padding:68px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.head{text-align:center;max-width:720px;margin:0 auto 40px}
+.tag{font-size:11px;font-family:monospace;color:#D4AF37;letter-spacing:2px;margin-bottom:6px}
+h2{font-size:clamp(24px,3.5vw,36px);font-weight:800;margin-bottom:10px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.card{background:#111622;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px}
+.card-gold{border:2px solid #D4AF37;background:linear-gradient(180deg,#151B29,#0D111A)}
+.inp{width:100%;padding:11px 14px;border-radius:10px;background:#06080C;border:1px solid rgba(255,255,255,.15);color:#fff;font-size:14px;margin-top:6px;margin-bottom:14px}
+.zone{padding:18px;border-radius:14px;margin-bottom:14px;border:1px solid rgba(255,255,255,.12);background:#0D111A}
+.z3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px;font-family:monospace;font-size:13px}
+.zcell{background:#06080C;padding:10px;border-radius:8px}
+.wa{position:fixed;bottom:20px;right:20px;background:#059669;color:#fff;padding:12px 18px;border-radius:99px;font-size:13px;font-weight:700}
+@media(max-width:800px){.menu{display:none}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="container nav-wrap">
-      <a href="#" class="brand">
-        <div class="brand-icon">PF</div>
-        <div>
-          <div class="brand-title">PFSO SNIPER</div>
-          <div class="brand-sub">XAUUSD • MECHANICAL ACADEMY</div>
-        </div>
-      </a>
-      <nav class="nav-links">
-        <a href="#filosofi">Psikologi</a>
-        <a href="#sistem">Sistem CTC</a>
-        <a href="#kalkulator">Fibo Roadmap</a>
-Glosarium
-2 Jalur Paket
-FAQ
+<header><div class="wrap nav">
+<a href="#" class="logo"><div class="logo-box">PF</div><div><div style="font-weight:800">PFSO SNIPER</div><div style="font-size:10px;color:#D4AF37;font-family:monospace">XAUUSD • ACADEMY</div></div></a>
+<nav class="menu"><a href="#psikologi">Psikologi</a><a href="#kalkulator">Fibo Roadmap</a><a href="#katalog" class="gold">2 Jalur Paket</a><a href="#order">Order</a></nav>
+<div style="display:flex;gap:8px"><a href="https://pfsosnipertrader.com" target="_blank" class="btn-out">Ruang Belajar</a><a href="#order" class="btn">AMANKAN LISENSI</a></div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+<div class="pill">● PUSAT EDUKASI TRADER MANDIRI • ANALISA MANUAL SMC CTC</div>
+<h1><span class="gold">SMC PFSO SNIPER</span><br>TRADER ACADEMY</h1>
+<p style="font-size:18px;color:#FDE68A;font-style:italic;margin-bottom:14px">“Satu Peluru, Satu Eksekusi, Disiplin Tanpa Kompromi Emosi”</p>
+<p style="max-width:720px;margin:0 auto;color:#9CA3AF;font-size:15px">Mencetak <strong style="color:#fff">Trader Mandiri</strong> melalui pembelajaran bersama berbasis analisa manual struktur pasar murni (<strong class="gold">Pullback Candle-to-Candle &amp; Strong FVG</strong>)—atau pilih jalur otomatis <strong style="color:#fff">PFSO Weapon</strong> bagi trader sibuk.</p>
+<div class="law"><div style="font-size:11px;color:#D4AF37;font-family:monospace;letter-spacing:2px">HUKUM MUTLAK KONSTITUSI SETUP</div><div style="font-size:20px;font-weight:800;font-family:monospace;margin-top:4px">NO IDM = NO SETUP • IDM WAJIB DI-BO (SWEEP / BODY)</div></div>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="#katalog" class="btn" style="padding:14px 26px;font-size:14px">LIHAT 2 JALUR PAKET</a><a href="#kalkulator" class="btn-out" style="padding:14px 26px;font-size:14px">SIMULASI FIBO M5</a></div>
+</div></section>
+
+<section id="psikologi"><div class="wrap">
+<div class="head"><div class="tag">MEDAN TEMPUR PSIKOLOGI</div><h2>PFSO SNIPER MINDSET</h2><p style="color:#9CA3AF;font-size:14px">Pasar mengalirkan uang dari <strong class="gold">Si Jantungan kepada Si Kepala Dingin</strong>. Setup akurat tidak berguna jika jempol digerakkan panik.</p></div>
+<div class="grid3">
+<div class="card" style="border-color:rgba(239,68,68,.4)"><div style="color:#F87171;font-size:12px;font-family:monospace">01 • GREED</div><h3 style="margin:8px 0">“Hajar Lot gajah biar cepat kaya!”</h3><p style="font-size:13px;color:#9CA3AF">Akibat: Over-Leverage Kronis &amp; akun hancur dalam satu sapuan candle.</p></div>
+<div class="card" style="border-color:rgba(239,68,68,.4)"><div style="color:#F87171;font-size:12px;font-family:monospace">02 • DENIAL</div><h3 style="margin:8px 0">“Harga pasti balik, geser SL lagi.”</h3><p style="font-size:13px;color:#9CA3AF">Akibat: Slaughtered (Disembelih pasar karena menolak mengakui analisa salah).</p></div>
+<div class="card" style="border-color:rgba(239,68,68,.4)"><div style="color:#F87171;font-size:12px;font-family:monospace">03 • REVENGE RAGE</div><h3 style="margin:8px 0">“Balas dendam sekarang juga!”</h3><p style="font-size:13px;color:#9CA3AF">Akibat: MARGIN CALL karena entry tanpa menunggu IDM &amp; kerangka CTC valid.</p></div>
+</div></div></section>
+
+<section id="kalkulator" style="background:#0A0D14"><div class="wrap">
+<div class="head"><div class="tag">LABORATORIUM INTERAKTIF</div><h2>Fibo Roadmap &amp; Zona Buta</h2><p style="color:#9CA3AF;font-size:14px">Masukkan koordinat <strong>High Valid (HV)</strong> dan <strong>Low Valid (LV)</strong> untuk memetakan Zona Sniper 1, Zona Buta (TP1), dan Zona Sniper 2.</p></div>
+<div class="grid2">
+<div class="card" style="border-color:rgba(212,175,55,.4)">
+<label style="font-size:12px;color:#9CA3AF">High Valid (HV)</label><input id="hv" type="number" step="0.01" value="2658.40" oninput="calc()" class="inp">
+<label style="font-size:12px;color:#9CA3AF">Low Valid (LV)</label><input id="lv" type="number" step="0.01" value="2642.10" oninput="calc()" class="inp">
+<label style="font-size:12px;color:#9CA3AF">Arah Struktur</label>
+<select id="bias" onchange="calc()" class="inp" style="color:#FDE68A"><option value="bear">BEARISH (Sniper 2 Sell Atas • Sniper 1 Buy Bawah)</option><option value="bull">BULLISH (Sniper 1 Sell Atas • Sniper 2 Buy Bawah)</option></select>
+</div>
+<div>
+<div class="zone" style="border-color:rgba(244,63,94,.4)"><strong id="tTop" style="color:#FDA4AF;font-size:13px">ZONA SNIPER 2 (PREMIUM)</strong><div class="z3"><div class="zcell"><small style="color:#9CA3AF">2c (78.6%)</small><div id="zc2">2654.91</div></div><div class="zcell"><small style="color:#9CA3AF">2b (88.6%)</small><div id="zb2">2656.54</div></div><div class="zcell"><small style="color:#FDA4AF">2a / SL</small><div id="za2">2658.40</div></div></div></div>
+<div class="zone" style="border-color:rgba(212,175,55,.45)"><strong class="gold" style="font-size:13px">ZONA BUTA (BLACK ZONA • TP 1)</strong><p style="font-size:12px;color:#9CA3AF;margin-top:6px">Target TP 1 di titik tengah: <strong id="zmid" class="gold">2650.25</strong> (Dilarang entry baru di area transisi ini).</p></div>
+<div class="zone" style="border-color:rgba(16,185,129,.4)"><strong id="tBot" style="color:#6EE7B7;font-size:13px">ZONA SNIPER 1 (DISCOUNT)</strong><div class="z3"><div class="zcell"><small style="color:#9CA3AF">1c (21.4%)</small><div id="zc1">2645.59</div></div><div class="zcell"><small style="color:#9CA3AF">1b (11.4%)</small><div id="zb1">2643.96</div></div><div class="zcell"><small style="color:#6EE7B7">1a / SL</small><div id="za1">2642.10</div></div></div></div>
+</div></div></div></section>
+
+<section id="katalog"><div class="wrap">
+<div class="head"><div class="tag">PILIH JALUR TRADING ANDA</div><h2>2 Jalur Utama PFSO</h2><p style="color:#9CA3AF;font-size:14px">Jalur 1 untuk <strong>Trader Mandiri (Analisa Manual SMC)</strong> dengan 2 indikator wajib berpasangan, dan Jalur 2 untuk <strong>PFSO Weapon (Otomatis)</strong>.</p></div>
+
+<div class="card card-gold" style="margin-bottom:44px">
+<div class="pill">JALUR 1 • REKOMENDASI UTAMA (TRADER MANDIRI)</div>
+<h3 style="font-size:24px;margin-bottom:10px">Paket Trader Mandiri: Indikator Pullback CTC + Indikator Strong FVG + Akses Academy</h3>
+<p style="font-size:14px;color:#D1D5DB;margin-bottom:18px">Untuk mempraktikkan SOP <strong>Tehnikal Entry Pullback</strong> secara akurat dan objektif, pengguna <strong class="gold">wajib menggunakan kedua indikator fundamental ini secara berpasangan</strong> (harga satuan Rp 550.000/indikator, hemat Rp 100.000 dalam paket lengkap).</p>
+<div class="grid2" style="margin-bottom:20px">
+1. Indikator Struktur Pullback CTC (Nilai Rp 550.000)Garis kerangka zig-zag murni pembersih noise candle, deteksi Titik 1-2-3, IDM wajib BO, serta pengunci HV & LV.
+2. Indikator Strong FVG Detector (Nilai Rp 550.000)Detektor zona ketidakseimbangan harga & persentase kekuatan dominasi buyer/seller secara real-time di MT4.
 
 
-Ruang Belajar
-AMANKAN LISENSI
-
-
-● PUSAT EDUKASI TRADER MANDIRI • ANALISA MANUAL SMC CTC
-SMC PFSO SNIPER
-TRADER ACADEMY
-“Satu Peluru, Satu Eksekusi, Disiplin Tanpa Kompromi Emosi”
-Tujuan utama akademi ini adalah mencetak Trader Mandiri melalui pembelajaran bersama berbasis analisa manual struktur pasar murni (Pullback Candle-to-Candle & Strong FVG). Ubah kebisingan warna candle menjadi kerangka matematika pasar yang objektif—atau pilih jalur otomatis PFSO Weapon bagi trader sibuk.
-HUKUM MUTLAK KONSTITUSI SETUP
-NO IDM = NO SETUP  •  IDM WAJIB DI-BO (SWEEP / BODY)
-Seluruh setup Sniper 1 ABC & Sniper 2 ABC hanya sah jika Inducement (IDM) telah diambil untuk mengunci High Valid (HV) & Low Valid (LV).
-LIHAT 2 JALUR PAKET & ALAT BANTU
-SIMULASI FIBO ROADMAP M5
-
-MEDAN TEMPUR PSIKOLOGI
-PFSO SNIPER MINDSET
-Pasar bukan tempat uang dicetak, melainkan tempat uang mengalir dari Si Jantungan kepada Si Kepala Dingin.
-01 • GREED (KESERAKAHAN)
-“Setup lagi wangi, hajar Lot gajah biar cepat kaya!”
-Mengabaikan batasan risiko karena euforia sesaat saat melihat candle bergerak kencang.
-Konsekuensi: Over-Leverage Kronis
-
-
-02 • DENIAL (MENOLAK KALAH)
-“Harga pasti mantul balik, geser Stop Loss ke bawah lagi.”
-Menahan posisi rugi tanpa batas karena ego tidak mau mengakui analisa salah.
-Konsekuensi: Slaughtered (Disembelih)
-
-
-03 • REVENGE RAGE
-“Market memburu SL saya, balas dendam sekarang!”
-Membuka posisi beruntun tanpa menunggu IDM & kerangka CTC valid setelah terkena SL.
-Konsekuensi: MARGIN CALL / LIKUIDASI
-
-
-
-1. Mekanis RigitEksekusi hanya saat kerangka Pullback CTC & Strong FVG memenuhi 100% syarat.
-2. Perisai EkuitasStop Loss ketat di luar batas struktur valid. Lindungi modal utama sebelum mengejar profit.
-3. Kontrol EgoTerima kekalahan kecil sebagai biaya operasional bisnis trading yang terukur.
-
-FONDASI ANALISA MANUAL
-Dari Kerangka Menuju Real Candle
-Membedah pasar menggunakan garis kerangka Pullback Candle-to-Candle (CTC) dan memvalidasi kekuatan dorongan menggunakan Strong FVG.
-LANGKAH 01
-Kerangka CTC (1-2-3)
-Memisahkan Mother Bar & Inside Bar untuk menarik garis zig-zag struktur objektif tanpa bias warna candle.
-LANGKAH 02
-Validasi IDM → HV / LV
-Tunggu Inducement (IDM) diambil lewat sweep ekor atau body candle agar High Valid & Low Valid terkunci sah.
-LANGKAH 03
-Sniper 1 & Sniper 2 ABC
-Petakan zona Sniper 1 ABC (Contra Trend) dan Sniper 2 ABC (Follow Trend) setelah kunci pintu terbuka.
-LANGKAH 04
-Konfirmasi Strong FVG
-Gunakan detektor kekuatan Fair Value Gap (FVG %) untuk memastikan dominasi institusi sebelum entry TP1 & TP2.
-LABORATORIUM INTERAKTIF
-Fibo Roadmap & Konstitusi Zona Buta
-Masukkan koordinat H Valid dan L Valid XAUUSD untuk memetakan Zona Sniper 1, Zona Buta (TP1), dan Zona Sniper 2 secara otomatis.
-1. Input Range Struktur Valid
-High Valid (HV) XAUUSD
-Low Valid (LV) XAUUSD
-Arah Struktur Utama
-BEARISH (Sniper 2 Sell Atas • Sniper 1 Buy Bawah)
-BULLISH (Sniper 1 Sell Atas • Sniper 2 Buy Bawah)
-
-
-2. Simulator Disiplin (4 Syarat Mutlak)
- IDM terdekat sudah disapu (Sweep / Body BO).
- HV & LV terkunci mekanis via kerangka Pullback CTC.
- Harga masuk area Sniper ABC & keluar Zona Buta.
- Strong FVG % menyala searah konfirmasi entry.
-NO SETUP — DILARANG MENYENTUH TOMBOL ENTRY
-ZONA SNIPER 2 (FOLLOW TREND SELL — PREMIUM)
-
-Garis 2c (78.6%)2654.91
-Garis 2b (88.6%)2656.54
-Garis 2a / SL2658.40
-
-
-
-ZONA BUTA (BLACK ZONA • EQUILIBRIUM / TP 1)
-Target aman TP 1 di titik tengah (2650.25). Dilarang membuka posisi baru di dalam area transisi ini.
-Batas Atas: 2652.17  |  Batas Bawah: 2648.33
-
-
-
-ZONA SNIPER 1 (CONTRA TREND BUY — DISCOUNT)
-
-Garis 1c (21.4%)2645.59
-Garis 1b (11.4%)2643.96
-Garis 1a / SL2642.10
-
-
-
-
-KAMUS ISTILAH RESMI
-Glosarium SMC PFSO
-
-
-
-IDM (Inducement)Umpan likuiditas pullback terdekat yang wajib disapu atau di-Break Out sebelum titik High atau Low dinyatakan valid.
-HV & LV (High / Low Valid)Batas puncak dan lembah struktur pasar yang terkunci secara mekanis pasca pengambilan IDM.
-Pullback CTC (Candle-to-Candle)Pembacaan kerangka zig-zag murni dengan menyaring Inside Bar agar struktur terbaca jernih tanpa bias warna candle.
-Strong FVG (Fair Value Gap)Ketidakseimbangan harga tiga candle dengan persentase kekuatan dominasi buyer/seller untuk memvalidasi zona pantulan.
-Zona Buta (Black Zona / TP1)Area keseimbangan tengah (equilibrium) sebagai target aman TP1 sekaligus area larangan membuka posisi baru.
-Sniper 1 & Sniper 2 ABCPemetaan 3 lapisan titik entry (a, b, c). Sniper 1 untuk koreksi (Contra Trend) dan Sniper 2 searah tren utama (Follow Trend).
-
-PILIH JALUR TRADING ANDA
-2 Jalur Utama PFSO
-Dipisahkan secara tegas antara jalur Belajar Mandiri (Analisa Manual) menggunakan 2 indikator fundamental wajib dan jalur Praktis Otomatis (PFSO Weapon) bagi yang tidak ingin melakukan analisa manual.
-JALUR 1 • REKOMENDASI UTAMA
-Jalur Trader Mandiri (Edukasi + 2 Indikator Fundamental Wajib)
-
-Untuk Trader yang Ingin Menguasai Analisa Manual SMC
-PAKET LENGKAP ANALISA MANUAL • WAJIB BERPASANGAN
-Paket Trader Mandiri: Indikator Pullback CTC + Indikator Strong FVG + Akses Academy
-Untuk mempraktikkan SOP Tehnikal Entry Pullback secara akurat dan objektif tanpa bias warna candle, pengguna wajib menggunakan kedua indikator fundamental ini secara berpasangan (harga satuan Rp 550.000/indikator, hemat Rp 100.000 dalam paket lengkap).
-1. Indikator Struktur Pullback CTC
-Nilai Satuan: Rp 550.000
-Garis kerangka zig-zag murni pembersih noise candle, deteksi otomatis Titik 1-2-3, IDM wajib BO, serta pengunci HV & LV.
-2. Indikator Strong FVG Detector
-Nilai Satuan: Rp 550.000
-Detektor zona ketidakseimbangan harga & persentase kekuatan dominasi buyer/seller secara real-time di chart MT4.
-✓ Lisensi Lifetime (1 Akun MT4)  •  ✓ Akses Penuh Ruang Belajar (pfsosnipertrader.com)  •  ✓ Bimbingan Komunitas
-
-Harga Satuan 2x Rp 550.000
-Rp 1.100.000
-HEMAT Rp 100.000 (WAJIB 2 INDI)
-Rp 1.000.000
-Sekali Bayar • Selamanya
-
+Rp 1.100.000 HEMAT Rp 100.000Rp 1.000.000 (Lifetime • 1 Akun MT4 + Akses Academy)
 AMBIL PAKET MANDIRI
+JALUR 2 • PFSO WEAPON (BAGI YANG TIDAK INGIN ANALISA MANUAL)
 
-
-JALUR 2 • SISTEM OTOMATIS
-PFSO Weapon (Bagi Trader yang Tidak Ingin Analisa Manual)
-
-Solusi Siap Pakai Tanpa Analisa Chart Manual
-AUTO TRADE & SNIPER
-EA PFSO FVG 80-100% Auto Trade (TP1 Edition) & Auto Sniper
-Rp 499.000
-• • Robot & Indikator Auto Trade (.ex4) terkunci 1 Akun MT4
-• • Filter sinyal valid probabilitas tinggi 80% – 100%
-• • Auto manajemen risiko & target profit TP1 / TP2
-• • Gratis akses ruang edukasi dasar
-PILIH SENJATA INI
-BEST SELLER EA • XAUUSD H4
-PFSO Bandflow v42 EA
-
-Rp 699.000
-Rp 3.500.000
-
-
-PF2.60
-Max DD0.77%
-WinRate50.79%
-• • Uji Backtest 3 Tahun (2024–2026) pada XAUUSD H4
-• • Support TF M15 – D1 (Rekomendasi Utama H4)
-• • Auto Entry, Auto SL, & Target Bertahap TP 1–3
-PILIH SENJATA INI
-INDICATOR TREND & BAND
-PFSO Uptrick Band Flow Final
-
-Rp 950.000
-Rp 1.500.000
-• • Support TF M15 – D1 (Rekomendasi Utama H1 & H4)
-• • Pita tren otomatis (Cyan = BUY, Magenta = SELL)
-• • Garis Kuning Entry Retest + Auto SL & TP 1–3
-• • Lisensi Lifetime + Free Edukasi
-PILIH SENJATA INI
-
-
-TANYA JAWAB UMUM
-Frequently Asked Questions
-
-
-Mengapa di Jalur Trader Mandiri wajib membeli 2 indikator sekaligus?
-Karena analisa manual SMC PFSO membutuhkan dua konfirmasi yang saling melengkapi: Indikator Pullback CTC bertugas memetakan kerangka struktur dan validasi IDM (HV/LV), sedangkan Indikator Strong FVG mengukur kekuatan dorongan institusi di zona entry.
-Bagaimana sistem lisensi indikator dan EA bekerja?
-Seluruh file indikator maupun EA (.ex4) dikompilasi dan dikunci secara permanen (Lifetime) pada 1 Nomor Akun Trading MT4 milik Anda.
-Apakah pemula boleh langsung trading di akun real?
-Sesuai Protokol Inkubasi PFSO, setiap member wajib melakukan latihan di Akun Demo terlebih dahulu hingga benar-benar memahami pembacaan kerangka CTC, Zona Buta, dan manajemen risiko sebelum ke akun real.
-AKTIVASI LISENSI & RUANG BELAJAR
-Amankan Lisensi Sniper Anda
-Lengkapi data di bawah ini. Pesanan Anda akan langsung diteruskan ke WhatsApp Admin (0812-3294-1935) untuk konfirmasi pembayaran BCA / QRIS dan pengiriman file.
+AUTO TRADE & SNIPEREA PFSO FVG 80-100% Auto Trade & Auto SniperRp 499.000Filter sinyal probabilitas 80–100%, Auto Trade TP1/TP2, 1 Akun MT4 + Free Edukasi.PILIH SENJATA INI
+BEST SELLER EA • XAUUSD H4PFSO Bandflow v42 EARp 699.000 Rp 3.500.000Uji 3 Tahun: PF 2.60 • Max DD 0.77% • WinRate 50.79%. Support TF M15–D1 (Utama H4).PILIH SENJATA INI
+INDICATOR TREND & BANDPFSO Uptrick Band Flow FinalRp 950.000 Rp 1.500.000Pita tren Cyan/Magenta, Garis Kuning Entry Retest + Auto SL & TP 1–3 (Utama H1 & H4).PILIH SENJATA INI
+AKTIVASI LISENSIAmankan Lisensi Sniper AndaPesanan diteruskan otomatis ke WhatsApp Admin (0812-3294-1935).
 Nama Lengkap *
-Alamat Email Gmail (Akses Academy) *
+Email Gmail (Untuk Akses Academy) *
 Nomor Akun Trading MT4 *
-Pilihan Jalur & Paket PFSO *
+Pilihan Paket PFSO *
 [Jalur 1 - Wajib Lengkap] Paket Trader Mandiri: Indikator Pullback CTC + Strong FVG + Academy (Rp 1.000.000)
-[Jalur 2 - Otomatis] EA PFSO FVG 80-100% Auto Trade & Auto Sniper (Rp 499.000)
-[Jalur 2 - Otomatis] PFSO Bandflow v42 EA XAUUSD H4 (Rp 699.000)
-[Jalur 2 - Otomatis] PFSO Uptrick Band Flow Final (Rp 950.000)
+[Jalur 2] EA PFSO FVG 80-100% Auto Trade & Auto Sniper (Rp 499.000)
+[Jalur 2] PFSO Bandflow v42 EA XAUUSD H4 (Rp 699.000)
+[Jalur 2] PFSO Uptrick Band Flow Final (Rp 950.000)
 
-
-
-Protokol Inkubasi & Ketentuan: Wajib uji coba di Akun Demo terlebih dahulu. Produk digital bersifat final (No-Refund) setelah file .ex4 dikompilasi ke nomor akun MT4 Anda.
-
-
-KIRIM PERMINTAAN LISENSI KE WHATSAPP ADMIN
-
-
-
-SMC PFSO SNIPER TRADER ACADEMY
-Disclaimer Risiko: Trading instrumen berjangka dan komoditas (XAUUSD) memiliki tingkat risiko tinggi. Seluruh materi, indikator, dan perangkat lunak di pfsosnipertrader.com & academy.pfsosnipertrader.com bertujuan sebagai sarana edukasi dan alat bantu analisa mekanikal.
-© 2026 PFSO Sniper Trader Academy • All Rights Reserved.
-
+KIRIM PESANAN KE WHATSAPP ADMIN
+© 2026 SMC PFSO Sniper Trader Academy • All Rights Reserved.
 💬 Chat Admin WA
-function hitungFibo() {
-const hv = parseFloat(document.getElementById('hvInput').value) || 0;
-const lv = parseFloat(document.getElementById('lvInput').value) || 0;
-const bias = document.getElementById('biasInput').value;
-const range = hv - lv;
-document.getElementById('zTopA').innerText = hv.toFixed(2);
-document.getElementById('zTopB').innerText = (lv + range * 0.886).toFixed(2);
-document.getElementById('zTopC').innerText = (lv + range * 0.786).toFixed(2);
-document.getElementById('zBlindHigh').innerText = (lv + range * 0.618).toFixed(2);
-document.getElementById('zMid').innerText = (lv + range * 0.50).toFixed(2);
-document.getElementById('zBlindLow').innerText = (lv + range * 0.382).toFixed(2);
-document.getElementById('zBotC').innerText = (lv + range * 0.214).toFixed(2);
-document.getElementById('zBotB').innerText = (lv + range * 0.114).toFixed(2);
-document.getElementById('zBotA').innerText = lv.toFixed(2);
-if (bias === 'bearish') {
-document.getElementById('topZoneTitle').innerText = 'ZONA SNIPER 2 (FOLLOW TREND SELL — PREMIUM)';
-document.getElementById('botZoneTitle').innerText = 'ZONA SNIPER 1 (CONTRA TREND BUY — DISCOUNT)';
-} else {
-document.getElementById('topZoneTitle').innerText = 'ZONA SNIPER 1 (CONTRA TREND SELL — PREMIUM)';
-document.getElementById('botZoneTitle').innerText = 'ZONA SNIPER 2 (FOLLOW TREND BUY — DISCOUNT)';
+function calc(){
+const h=parseFloat(document.getElementById('hv').value)||0,l=parseFloat(document.getElementById('lv').value)||0,b=document.getElementById('bias').value,r=h-l;
+document.getElementById('za2').innerText=h.toFixed(2);document.getElementById('zb2').innerText=(l+r*.886).toFixed(2);document.getElementById('zc2').innerText=(l+r*.786).toFixed(2);
+document.getElementById('zmid').innerText=(l+r*.5).toFixed(2);
+document.getElementById('zc1').innerText=(l+r*.214).toFixed(2);document.getElementById('zb1').innerText=(l+r*.114).toFixed(2);document.getElementById('za1').innerText=l.toFixed(2);
+document.getElementById('tTop').innerText=b==='bear'?'ZONA SNIPER 2 (FOLLOW TREND SELL — PREMIUM)':'ZONA SNIPER 1 (CONTRA TREND SELL — PREMIUM)';
+document.getElementById('tBot').innerText=b==='bear'?'ZONA SNIPER 1 (CONTRA TREND BUY — DISCOUNT)':'ZONA SNIPER 2 (FOLLOW TREND BUY — DISCOUNT)';
 }
-}
-function cekDisiplin() {
-const cbs = document.querySelectorAll('.syarat-cb');
-const allChecked = Array.from(cbs).every(cb => cb.checked);
-const badge = document.getElementById('statusBadge');
-if (allChecked) {
-badge.className = 'status-ok';
-badge.innerText = 'SETUP VALID — SIAP EKSEKUSI SNIPER!';
-} else {
-badge.className = 'status-no';
-badge.innerText = 'NO SETUP — DILARANG MENYENTUH TOMBOL ENTRY';
-}
-}
-function filterGlosarium() {
-const q = document.getElementById('searchGlosarium').value.toLowerCase();
-document.querySelectorAll('.glos-card').forEach(card => {
-card.style.display = card.innerText.toLowerCase().includes(q) ? 'block' : 'none';
-});
-}
-function pilihPaket(namaPaket) {
-document.getElementById('orderPaket').value = namaPaket;
-document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
-}
-function kirimOrderWA(e) {
+function pick(p){document.getElementById('paket').value=p;document.getElementById('order').scrollIntoView({behavior:'smooth'});}
+function sendWA(e){
 e.preventDefault();
-const nama = document.getElementById('orderNama').value.trim();
-const email = document.getElementById('orderEmail').value.trim();
-const mt4 = document.getElementById('orderMt4').value.trim();
-const paket = document.getElementById('orderPaket').value;
-const pesan = Halo Admin PFSO Sniper Trader, saya ingin memesan lisensi berikut:\n\n• Nama: ${nama}\n• Paket Dipilih: ${paket}\n• Email Gmail (Akses Academy): ${email}\n• Nomor Akun MT4: ${mt4}\n\nMohon infokan rekening BCA / QRIS untuk penyelesaian pembayaran. Terima kasih.;
-window.open(https://wa.me{encodeURIComponent(pesan)}, '_blank');
+const m=Halo Admin PFSO Sniper Trader, saya ingin memesan:\n• Nama: ${document.getElementById('nama').value}\n• Paket: ${document.getElementById('paket').value}\n• Email Gmail: ${document.getElementById('email').value}\n• Akun MT4: ${document.getElementById('mt4').value}\n\nMohon info rekening BCA / QRIS. Terima kasih.;
+window.open('wa.me');
 }
-hitungFibo();
+calc();
