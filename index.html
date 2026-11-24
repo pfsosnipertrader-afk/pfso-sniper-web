@@ -13,8 +13,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,10,15,.95);border-bott
 .logo{display:flex;align-items:center;gap:12px}
 .logo-box{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#FDE68A,#D4AF37,#B45309);color:#000;font-weight:900;display:flex;align-items:center;justify-content:center}
 .menu{display:flex;gap:18px;font-size:13px;color:#9CA3AF}
-.btn{padding:10px 18px;border-radius:8px;background:linear-gradient(90deg,#FDE68A,#D4AF37);color:#000;font-weight:800;font-size:12px;border:none;cursor:pointer;display:inline-block}
-.btn-out{padding:8px 14px;border-radius:8px;border:1px solid rgba(212,175,55,.45);color:#FDE68A;font-size:12px;font-weight:600}
+.btn{padding:10px 18px;border-radius:8px;background:linear-gradient(90deg,#FDE68A,#D4AF37);color:#000;font-weight:800;font-size:12px;border:none;cursor:pointer;display:inline-block;text-align:center}
+.btn-out{padding:8px 14px;border-radius:8px;border:1px solid rgba(212,175,55,.45);color:#FDE68A;font-size:12px;font-weight:600;background:transparent;cursor:pointer;display:inline-block;text-align:center}
 .hero{padding:68px 0;text-align:center;background:radial-gradient(circle at top,rgba(212,175,55,.15),transparent 60%);border-bottom:1px solid rgba(255,255,255,.1)}
 .pill{display:inline-block;padding:6px 14px;border-radius:99px;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.4);color:#FDE68A;font-size:11px;font-family:monospace;margin-bottom:16px}
 h1{font-size:clamp(30px,5vw,54px);font-weight:900;line-height:1.15;margin-bottom:12px}
@@ -32,7 +32,7 @@ h2{font-size:clamp(24px,3.5vw,36px);font-weight:800;margin-bottom:10px}
 .zone{padding:18px;border-radius:14px;margin-bottom:14px;border:1px solid rgba(255,255,255,.12);background:#0D111A}
 .z3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px;font-family:monospace;font-size:13px}
 .zcell{background:#06080C;padding:10px;border-radius:8px}
-.wa{position:fixed;bottom:20px;right:20px;background:#059669;color:#fff;padding:12px 18px;border-radius:99px;font-size:13px;font-weight:700}
+.wa{position:fixed;bottom:20px;right:20px;background:#059669;color:#fff;padding:12px 18px;border-radius:99px;font-size:13px;font-weight:700;z-index:90}
 @media(max-width:800px){.menu{display:none}}
 </style>
 </head>
@@ -58,7 +58,8 @@ h2{font-size:clamp(24px,3.5vw,36px);font-weight:800;margin-bottom:10px}
 <div class="card" style="border-color:rgba(239,68,68,.4)"><div style="color:#F87171;font-size:12px;font-family:monospace">01 • GREED</div><h3 style="margin:8px 0">“Hajar Lot gajah biar cepat kaya!”</h3><p style="font-size:13px;color:#9CA3AF">Akibat: Over-Leverage Kronis &amp; akun hancur dalam satu sapuan candle.</p></div>
 <div class="card" style="border-color:rgba(239,68,68,.4)"><div style="color:#F87171;font-size:12px;font-family:monospace">02 • DENIAL</div><h3 style="margin:8px 0">“Harga pasti balik, geser SL lagi.”</h3><p style="font-size:13px;color:#9CA3AF">Akibat: Slaughtered (Disembelih pasar karena menolak mengakui analisa salah).</p></div>
 <div class="card" style="border-color:rgba(239,68,68,.4)"><div style="color:#F87171;font-size:12px;font-family:monospace">03 • REVENGE RAGE</div><h3 style="margin:8px 0">“Balas dendam sekarang juga!”</h3><p style="font-size:13px;color:#9CA3AF">Akibat: MARGIN CALL karena entry tanpa menunggu IDM &amp; kerangka CTC valid.</p></div>
-</div></div></section>
+</div>
+</div></section>
 
 <section id="kalkulator" style="background:#0A0D14"><div class="wrap">
 <div class="head"><div class="tag">LABORATORIUM INTERAKTIF</div><h2>Fibo Roadmap &amp; Zona Buta</h2><p style="color:#9CA3AF;font-size:14px">Masukkan koordinat <strong>High Valid (HV)</strong> dan <strong>Low Valid (LV)</strong> untuk memetakan Zona Sniper 1, Zona Buta (TP1), dan Zona Sniper 2.</p></div>
@@ -73,7 +74,9 @@ h2{font-size:clamp(24px,3.5vw,36px);font-weight:800;margin-bottom:10px}
 <div class="zone" style="border-color:rgba(244,63,94,.4)"><strong id="tTop" style="color:#FDA4AF;font-size:13px">ZONA SNIPER 2 (PREMIUM)</strong><div class="z3"><div class="zcell"><small style="color:#9CA3AF">2c (78.6%)</small><div id="zc2">2654.91</div></div><div class="zcell"><small style="color:#9CA3AF">2b (88.6%)</small><div id="zb2">2656.54</div></div><div class="zcell"><small style="color:#FDA4AF">2a / SL</small><div id="za2">2658.40</div></div></div></div>
 <div class="zone" style="border-color:rgba(212,175,55,.45)"><strong class="gold" style="font-size:13px">ZONA BUTA (BLACK ZONA • TP 1)</strong><p style="font-size:12px;color:#9CA3AF;margin-top:6px">Target TP 1 di titik tengah: <strong id="zmid" class="gold">2650.25</strong> (Dilarang entry baru di area transisi ini).</p></div>
 <div class="zone" style="border-color:rgba(16,185,129,.4)"><strong id="tBot" style="color:#6EE7B7;font-size:13px">ZONA SNIPER 1 (DISCOUNT)</strong><div class="z3"><div class="zcell"><small style="color:#9CA3AF">1c (21.4%)</small><div id="zc1">2645.59</div></div><div class="zcell"><small style="color:#9CA3AF">1b (11.4%)</small><div id="zb1">2643.96</div></div><div class="zcell"><small style="color:#6EE7B7">1a / SL</small><div id="za1">2642.10</div></div></div></div>
-</div></div></div></section>
+</div>
+</div>
+</div></section>
 
 <section id="katalog"><div class="wrap">
 <div class="head"><div class="tag">PILIH JALUR TRADING ANDA</div><h2>2 Jalur Utama PFSO</h2><p style="color:#9CA3AF;font-size:14px">Jalur 1 untuk <strong>Trader Mandiri (Analisa Manual SMC)</strong> dengan 2 indikator wajib berpasangan, dan Jalur 2 untuk <strong>PFSO Weapon (Otomatis)</strong>.</p></div>
@@ -89,11 +92,13 @@ h2{font-size:clamp(24px,3.5vw,36px);font-weight:800;margin-bottom:10px}
 
 Rp 1.100.000 HEMAT Rp 100.000Rp 1.000.000 (Lifetime • 1 Akun MT4 + Akses Academy)
 AMBIL PAKET MANDIRI
+
 JALUR 2 • PFSO WEAPON (BAGI YANG TIDAK INGIN ANALISA MANUAL)
 
 AUTO TRADE & SNIPEREA PFSO FVG 80-100% Auto Trade & Auto SniperRp 499.000Filter sinyal probabilitas 80–100%, Auto Trade TP1/TP2, 1 Akun MT4 + Free Edukasi.PILIH SENJATA INI
 BEST SELLER EA • XAUUSD H4PFSO Bandflow v42 EARp 699.000 Rp 3.500.000Uji 3 Tahun: PF 2.60 • Max DD 0.77% • WinRate 50.79%. Support TF M15–D1 (Utama H4).PILIH SENJATA INI
 INDICATOR TREND & BANDPFSO Uptrick Band Flow FinalRp 950.000 Rp 1.500.000Pita tren Cyan/Magenta, Garis Kuning Entry Retest + Auto SL & TP 1–3 (Utama H1 & H4).PILIH SENJATA INI
+
 AKTIVASI LISENSIAmankan Lisensi Sniper AndaPesanan diteruskan otomatis ke WhatsApp Admin (0812-3294-1935).
 Nama Lengkap *
 Email Gmail (Untuk Akses Academy) *
@@ -105,6 +110,8 @@ Pilihan Paket PFSO *
 [Jalur 2] PFSO Uptrick Band Flow Final (Rp 950.000)
 
 KIRIM PESANAN KE WHATSAPP ADMIN
+
+
 © 2026 SMC PFSO Sniper Trader Academy • All Rights Reserved.
 💬 Chat Admin WA
 function calc(){
@@ -118,7 +125,7 @@ document.getElementById('tBot').innerText=b==='bear'?'ZONA SNIPER 1 (CONTRA TREN
 function pick(p){document.getElementById('paket').value=p;document.getElementById('order').scrollIntoView({behavior:'smooth'});}
 function sendWA(e){
 e.preventDefault();
-const m=Halo Admin PFSO Sniper Trader, saya ingin memesan:\n• Nama: ${document.getElementById('nama').value}\n• Paket: ${document.getElementById('paket').value}\n• Email Gmail: ${document.getElementById('email').value}\n• Akun MT4: ${document.getElementById('mt4').value}\n\nMohon info rekening BCA / QRIS. Terima kasih.;
+const m='Halo Admin PFSO Sniper Trader, saya ingin memesan:\n• Nama: '+document.getElementById('nama').value+'\n• Paket: '+document.getElementById('paket').value+'\n• Email Gmail: '+document.getElementById('email').value+'\n• Akun MT4: '+document.getElementById('mt4').value+'\n\nMohon info rekening BCA / QRIS. Terima kasih.';
 window.open('wa.me');
 }
 calc();
