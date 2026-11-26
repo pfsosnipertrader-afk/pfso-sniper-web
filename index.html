@@ -686,5 +686,62 @@ footer .f-quote{font-family:var(--serif);font-style:italic;color:var(--gold-l);f
   $('waFloat').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(floatMsg);
 })();
 </script>
+
+  <!-- GALERI BUKTI AKURASI CHART (3 TAHAP) -->
+<section id="galeri-chart" style="max-width: 1000px; margin: 40px auto; padding: 24px; background: #111622; border: 1px solid #263042; border-radius: 14px; text-align: center;">
+  <h2 style="color: #f5b942; font-size: 1.6rem; margin-bottom: 8px;">Bukti Akurasi Struktur & Auto Entry TP/SL</h2>
+  <p style="color: #9ca3af; font-size: 0.95rem; margin-bottom: 20px;">Klik tombol di bawah untuk membandingkan pembacaan struktur murni hingga sinyal eksekusi otomatis pada XAUUSD H4:</p>
+
+  <!-- Tombol Tab -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px;">
+    <button type="button" onclick="gantiChart('clean', this)" class="tab-chart active" style="padding: 10px 18px; border-radius: 8px; border: 1px solid #f5b942; background: #f5b942; color: #0b0e14; font-weight: bold; cursor: pointer;">
+      1. Struktur Murni (Kosongan)
+    </button>
+    <button type="button" onclick="gantiChart('ctc', this)" class="tab-chart" style="padding: 10px 18px; border-radius: 8px; border: 1px solid #263042; background: #181f2e; color: #e5e7eb; font-weight: bold; cursor: pointer;">
+      2. Pullback Candle to Candle
+    </button>
+    <button type="button" onclick="gantiChart('auto', this)" class="tab-chart" style="padding: 10px 18px; border-radius: 8px; border: 1px solid #263042; background: #181f2e; color: #e5e7eb; font-weight: bold; cursor: pointer;">
+      3. Auto Entry, SL & TP 1–3
+    </button>
+  </div>
+
+  <!-- Area Gambar Chart -->
+  <div style="border: 1px solid #263042; border-radius: 10px; overflow: hidden; background: #000;">
+    <img id="preview-chart-img" src="images/indikator/pullback-structure-clean.png.jpg" alt="Preview Chart Indikator PFSO" style="width: 100%; height: auto; display: block;">
+  </div>
+  <p id="preview-chart-caption" style="color: #d1d5db; font-size: 0.9rem; margin-top: 12px;">
+    <strong>Tahap 1 — Struktur Murni:</strong> Pembacaan garis zig-zag High/Low tanpa gangguan candle untuk melihat arah struktur pasar secara jernih.
+  </p>
+</section>
+
+<script>
+  function gantiChart(tipe, btn) {
+    const img = document.getElementById('preview-chart-img');
+    const caption = document.getElementById('preview-chart-caption');
+    const buttons = document.querySelectorAll('.tab-chart');
+
+    buttons.forEach(b => {
+      b.style.background = '#181f2e';
+      b.style.color = '#e5e7eb';
+      b.style.borderColor = '#263042';
+    });
+
+    btn.style.background = '#f5b942';
+    btn.style.color = '#0b0e14';
+    btn.style.borderColor = '#f5b942';
+
+    if (tipe === 'clean') {
+      img.src = 'images/indikator/pullback-structure-clean.png.jpg';
+      caption.innerHTML = '<strong>Tahap 1 — Struktur Murni:</strong> Pembacaan garis zig-zag High/Low tanpa gangguan candle untuk melihat arah struktur pasar secara jernih.';
+    } else if (tipe === 'ctc') {
+      img.src = 'images/indikator/pullback-ctc.png.jpg';
+      caption.innerHTML = '<strong>Tahap 2 — Pullback Candle to Candle:</strong> Garis struktur menempel presisi dari candle ke candle untuk memvalidasi pullback dan inducement.';
+    } else if (tipe === 'auto') {
+      img.src = 'images/indikator/auto-entry-tp.png.jpg';
+      caption.innerHTML = '<strong>Tahap 3 — PFSO FVG Auto Sniper:</strong> Otomatis memunculkan zona probabilitas tinggi (99.0%) lengkap dengan titik Entry, Stop Loss, dan TP 1–3.';
+    }
+  }
+</script>
+
 </body>
 </html>
