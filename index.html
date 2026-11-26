@@ -292,76 +292,8 @@ footer .f-quote{font-family:var(--serif);font-style:italic;color:var(--gold-l);f
         <div class="chart-title"><b>XAUUSD</b> • PULLBACK CTC • GOLDEN RATIO</div>
         <div class="pair-badge"><span class="dot"></span>XAUUSD • M5</div>
       </div>
-      <svg class="chart-svg" viewBox="0 0 520 340" role="img" aria-label="Ilustrasi grafik candlestick XAUUSD dengan spiral Golden Ratio">
-        <defs>
-          <linearGradient id="gUp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7E3A1"/><stop offset="1" stop-color="#C9971F"/></linearGradient>
-          <linearGradient id="gDn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A2A12"/><stop offset="1" stop-color="#1A140A"/></linearGradient>
-          <linearGradient id="gSp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1C1"/><stop offset=".5" stop-color="#D4AF37"/><stop offset="1" stop-color="#8A6A14"/></linearGradient>
-          <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D4AF37" stop-opacity=".18"/><stop offset="1" stop-color="#D4AF37" stop-opacity="0"/></linearGradient>
-          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <clipPath id="clip"><rect x="0" y="0" width="520" height="340" rx="16"/></clipPath>
-        </defs>
-        <g clip-path="url(#clip)">
-          <!-- grid -->
-          <g stroke="rgba(255,255,255,.05)" stroke-width="1">
-            <line x1="0" y1="60" x2="520" y2="60"/><line x1="0" y1="120" x2="520" y2="120"/><line x1="0" y1="180" x2="520" y2="180"/><line x1="0" y1="240" x2="520" y2="240"/><line x1="0" y1="300" x2="520" y2="300"/>
-            <line x1="104" y1="0" x2="104" y2="340"/><line x1="208" y1="0" x2="208" y2="340"/><line x1="312" y1="0" x2="312" y2="340"/><line x1="416" y1="0" x2="416" y2="340"/>
-          </g>
-          <!-- golden rectangle guides -->
-          <g fill="none" stroke="rgba(212,175,55,.14)" stroke-width="1" stroke-dasharray="3 5">
-            <rect x="182" y="-42" width="290" height="290"/>
-            <line x1="182" y1="128" x2="472" y2="128"/>
-            <line x1="352" y1="-42" x2="352" y2="248"/>
-          </g>
-          <!-- fibo levels -->
-          <g font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" letter-spacing="1">
-            <line x1="0" y1="84" x2="520" y2="84" stroke="rgba(253,164,175,.35)" stroke-dasharray="4 4"/>
-            <text x="10" y="78" fill="#FDA4AF">HV • 1.000</text>
-            <line x1="0" y1="192" x2="520" y2="192" stroke="rgba(212,175,55,.45)" stroke-dasharray="4 4"/>
-            <text x="10" y="186" fill="#F3DC8C">TP1 • 0.500</text>
-            <line x1="0" y1="300" x2="520" y2="300" stroke="rgba(110,231,183,.35)" stroke-dasharray="4 4"/>
-            <text x="10" y="294" fill="#6EE7B7">LV • 0.000</text>
-          </g>
-          <!-- trend area -->
-          <path d="M39 300 L117 252 L195 210 L273 220 L351 156 L429 124 L468 88 L468 340 L39 340 Z" fill="url(#gArea)"/>
-          <!-- candles -->
-          <g>
-<line x1="39" y1="280.5" x2="39" y2="307.1" stroke="#E9C46A" stroke-width="1.2"/><rect x="34" y="286.0" width="10" height="16.4" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="58.5" y1="265.1" x2="58.5" y2="297.4" stroke="#E9C46A" stroke-width="1.2"/><rect x="53.5" y="271.0" width="10" height="15.9" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="78" y1="242.0" x2="78" y2="279.2" stroke="#E9C46A" stroke-width="1.2"/><rect x="73" y="251.8" width="10" height="18.2" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="97.5" y1="244.0" x2="97.5" y2="272.9" stroke="#8B5A2B" stroke-width="1.2"/><rect x="92.5" y="250.5" width="10" height="12.4" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
-<line x1="117" y1="250.9" x2="117" y2="283.2" stroke="#8B5A2B" stroke-width="1.2"/><rect x="112" y="260.6" width="10" height="15.1" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
-<line x1="136.5" y1="258.8" x2="136.5" y2="279.5" stroke="#E9C46A" stroke-width="1.2"/><rect x="131.5" y="262.5" width="10" height="9.0" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="156" y1="232.1" x2="156" y2="270.6" stroke="#E9C46A" stroke-width="1.2"/><rect x="151" y="241.5" width="10" height="20.5" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="175.5" y1="212.4" x2="175.5" y2="246.4" stroke="#E9C46A" stroke-width="1.2"/><rect x="170.5" y="218.8" width="10" height="21.6" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="195" y1="198.4" x2="195" y2="224.8" stroke="#E9C46A" stroke-width="1.2"/><rect x="190" y="202.4" width="10" height="16.8" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="214.5" y1="189.4" x2="214.5" y2="223.0" stroke="#8B5A2B" stroke-width="1.2"/><rect x="209.5" y="201.9" width="10" height="12.6" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
-<line x1="234" y1="209.5" x2="234" y2="231.5" stroke="#8B5A2B" stroke-width="1.2"/><rect x="229" y="212.5" width="10" height="13.7" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
-<line x1="253.5" y1="220.8" x2="253.5" y2="239.6" stroke="#8B5A2B" stroke-width="1.2"/><rect x="248.5" y="227.7" width="10" height="7.4" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
-<line x1="273" y1="219.0" x2="273" y2="239.4" stroke="#E9C46A" stroke-width="1.2"/><rect x="268" y="225.3" width="10" height="7.9" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="292.5" y1="189.2" x2="292.5" y2="226.6" stroke="#E9C46A" stroke-width="1.2"/><rect x="287.5" y="197.2" width="10" height="25.2" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="312" y1="169.9" x2="312" y2="206.6" stroke="#E9C46A" stroke-width="1.2"/><rect x="307" y="176.2" width="10" height="23.4" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="331.5" y1="144.4" x2="331.5" y2="180.9" stroke="#E9C46A" stroke-width="1.2"/><rect x="326.5" y="153.4" width="10" height="22.6" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="351" y1="139.9" x2="351" y2="172.7" stroke="#8B5A2B" stroke-width="1.2"/><rect x="346" y="151.6" width="10" height="11.8" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
-<line x1="370.5" y1="154.7" x2="370.5" y2="187.4" stroke="#8B5A2B" stroke-width="1.2"/><rect x="365.5" y="162.6" width="10" height="15.0" rx="1.5" fill="url(#gDn)" stroke="#8B5A2B" stroke-width=".6"/>
-<line x1="390" y1="156.0" x2="390" y2="180.6" stroke="#E9C46A" stroke-width="1.2"/><rect x="385" y="166.1" width="10" height="9.4" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="409.5" y1="136.3" x2="409.5" y2="171.8" stroke="#E9C46A" stroke-width="1.2"/><rect x="404.5" y="142.3" width="10" height="22.9" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="429" y1="112.2" x2="429" y2="151.4" stroke="#E9C46A" stroke-width="1.2"/><rect x="424" y="115.8" width="10" height="24.4" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="448.5" y1="94.8" x2="448.5" y2="122.9" stroke="#E9C46A" stroke-width="1.2"/><rect x="443.5" y="98.8" width="10" height="20.8" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-<line x1="468" y1="76.1" x2="468" y2="100.0" stroke="#E9C46A" stroke-width="1.2"/><rect x="463" y="85.3" width="10" height="10.7" rx="1.5" fill="url(#gUp)" stroke="#E9C46A" stroke-width=".6"/>
-          </g>
-          <!-- golden spiral -->
-          <path d="M356.6 128.0 L356.7 127.6 L356.8 127.1 L356.8 126.7 L356.8 126.2 L356.8 125.7 L356.7 125.2 L356.5 124.7 L356.3 124.2 L356.1 123.7 L355.8 123.3 L355.4 122.8 L355.0 122.4 L354.6 121.9 L354.1 121.6 L353.5 121.2 L352.9 120.9 L352.3 120.7 L351.6 120.5 L350.9 120.3 L350.2 120.2 L349.4 120.2 L348.6 120.3 L347.8 120.4 L347.0 120.6 L346.2 120.9 L345.4 121.2 L344.7 121.7 L343.9 122.2 L343.2 122.8 L342.5 123.5 L341.8 124.3 L341.3 125.1 L340.7 126.0 L340.3 127.0 L339.9 128.1 L339.6 129.2 L339.5 130.4 L339.4 131.6 L339.4 132.9 L339.6 134.1 L339.8 135.4 L340.2 136.7 L340.8 138.0 L341.4 139.3 L342.2 140.5 L343.1 141.7 L344.2 142.9 L345.4 144.0 L346.7 145.0 L348.2 145.8 L349.7 146.6 L351.4 147.3 L353.1 147.8 L355.0 148.2 L356.9 148.4 L358.9 148.4 L361.0 148.2 L363.1 147.9 L365.2 147.3 L367.3 146.6 L369.3 145.6 L371.4 144.4 L373.4 143.0 L375.3 141.4 L377.1 139.6 L378.7 137.6 L380.2 135.3 L381.6 132.9 L382.7 130.3 L383.7 127.5 L384.4 124.5 L384.8 121.5 L385.0 118.3 L384.9 115.0 L384.5 111.6 L383.7 108.2 L382.7 104.8 L381.3 101.5 L379.5 98.1 L377.4 94.9 L374.9 91.7 L372.1 88.7 L369.0 85.9 L365.5 83.4 L361.7 81.1 L357.6 79.1 L353.2 77.4 L348.6 76.1 L343.7 75.1 L338.6 74.6 L333.4 74.6 L328.0 75.1 L322.5 76.0 L317.0 77.5 L311.5 79.5 L306.1 82.1 L300.7 85.3 L295.6 89.0 L290.6 93.3 L286.0 98.1 L281.6 103.5 L277.7 109.4 L274.2 115.9 L271.2 122.8 L268.8 130.1 L267.1 137.8 L265.9 145.9 L265.6 154.3 L265.9 162.9 L267.1 171.7 L269.1 180.6 L272.0 189.5 L275.8 198.3 L280.5 207.0 L286.1 215.5 L292.6 223.7 L300.0 231.5 L308.3 238.7 L317.5 245.4 L327.6 251.4 L338.4 256.6 L349.9 260.9 L362.2 264.3 L375.0 266.6 L388.3 267.7 L402.1 267.7 L416.2 266.4 L430.5 263.8 L444.9 259.7 L459.3 254.3" fill="none" stroke="url(#gSp)" stroke-width="2.2" stroke-linecap="round" filter="url(#glow)" opacity=".95"/>
-          <circle cx="352" cy="128" r="4" fill="#FFF1C1"/>
-          <circle cx="352" cy="128" r="10" fill="none" stroke="rgba(243,220,140,.5)"/>
-          <text x="364" y="120" font-family="Georgia,serif" font-style="italic" font-size="15" fill="#F3DC8C">φ 1.618</text>
-          <!-- entry marker -->
-          <g font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" font-weight="700">
-            <rect x="398" y="150" width="96" height="22" rx="6" fill="rgba(34,197,94,.14)" stroke="rgba(34,197,94,.55)"/>
-            <text x="446" y="164.5" text-anchor="middle" fill="#86EFAC" letter-spacing="1">SNIPER ENTRY</text>
-          </g>
-        </g>
-      </svg>
+      <img src="images/indikator/hero-sniper-1-2.png" alt="SMC PFSO Sniper Trader Academy - Sniper 1 & 2" style="width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.35); display: block; margin: 12px 0;">
+
       <div class="konst">
         <small>KONSTITUSI TERTINGGI</small>
         <div>NO IDM = NO SETUP<span class="sep">•</span>IDM WAJIB DI-BO</div>
